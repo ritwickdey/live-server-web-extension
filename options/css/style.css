@@ -1,0 +1,25 @@
+@import "button.css";
+
+
+*, 
+*::after, 
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    width: 200px;
+}
+
+#header {
+    font-size: 20px;
+    font-family: sans-serif;
+    letter-spacing: 0.6px; 
+    padding: 5px 0px;
+    margin: 0;
+}
+
+.content {
+    padding: 0px 5px 5px 5px;
+}
+
