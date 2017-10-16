@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Borderify",
-    "version": "1.0",
-    "description": "Adds a red border to all webpages matching mozilla.org.",
+    "name": "Live Server Web Extension",
+    "version": "0.0.1",
+    "description": "Live Server Web Extension",
     "icons": {},
     "content_scripts": [
         {
