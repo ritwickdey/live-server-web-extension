@@ -3,7 +3,12 @@
     "name": "Live Server Web Extension",
     "version": "0.0.1",
     "description": "Live Server Web Extension",
-    "icons": {},
+    "icons": {
+        "96": "./img/icon.png"
+    },
+    "author": "Ritwick Dey",
+    "short_name": "Live Server",
+    "homepage_url": "https://github.com/ritwickdey/live-server-web-extension",
     "content_scripts": [
         {
             "matches": [
