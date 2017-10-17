@@ -7,8 +7,8 @@
     "content_scripts": [
         {
             "matches": [
-                "http://*/*",
-                "https://*/*"
+                "http://localhost:*/*",
+                "https://127.0.0.1:*/*"
             ],
             "js": [
                 "reload.js"
@@ -16,13 +16,21 @@
         }
     ],
     "background": {
-        
+        "page" : "./options/options.html"
     },
 
     "browser_action": {
         "default_popup":"./options/options.html"
     },
 
+    "options_ui": {
+        "page": "./options/options.html",
+        "chrome_style": true
+    },
+
     "permissions": [
+        "tabs",
+        "http://localhost:*/*",
+        "https://127.0.0.1:*/*"
     ]
 }
