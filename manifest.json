@@ -13,6 +13,8 @@
         {
             "matches": [
                 "http://localhost:*/*",
+                "https://localhost:*/*",
+                "http://127.0.0.1:*/*",
                 "https://127.0.0.1:*/*"
             ],
             "js": [
@@ -35,6 +37,8 @@
     "permissions": [
         "tabs",
         "http://localhost:*/*",
+        "https://localhost:*/*",
+        "http://127.0.0.1:*/*",
         "https://127.0.0.1:*/*"
     ]
 }
