@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Live Server Web Extension",
+    "name": "Live Server Web Extension BETA",
     "version": "0.0.1",
-    "description": "Live Server Web Extension",
+    "description": "Live Reload For Dynamic Pages",
     "icons": {
         "96": "./img/icon.png"
     },
@@ -28,11 +28,9 @@
         ]
     },
     "browser_action": {
-        "default_popup": "./popup/popup.html"
-    },
-    "options_ui": {
-        "page": "./popup/popup.html",
-        "chrome_style": true
+        "default_popup": "./popup/popup.html",
+        "default_icon": "./img/icon.png",
+        "default_title": "Live Server"
     },
     "permissions": [
         "tabs",
