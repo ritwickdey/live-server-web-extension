@@ -3,7 +3,7 @@
 ***[STILL IN UNDER DEVELOPEMENT]***
 
 `Live Server - Web Extension` is a browser extension that helps you to live reload feature for dynamic content (PHP, Node.js, ASPNET -- Whatever, it doesn't matter). 
-This extension is for [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (VSCode Extension - requried v3.0.0+). 
+This extension is for [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (VSCode Extension - required v3.0.0+). 
 
 ## Install Link : 
 * Firefox : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/
