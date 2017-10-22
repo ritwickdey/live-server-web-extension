@@ -2,13 +2,20 @@
 
 ***[STILL IN UNDER DEVELOPEMENT]***
 
-`Live Server - Web Extension` is a browser extension that helps you to live reload feature for dynamic content (PHP, Node.js, ASPNET -- Whatever, it doesn't matter). 
+***[Please give a try. Setup is pretty easy. I need your feedback.]***
+
+<br>
+
+**Live Server - Web Extension** is a browser extension that helps you to live reload feature for dynamic content (PHP, Node.js, ASP.NET -- Whatever, it doesn't matter). 
 This extension is for [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (VSCode Extension - required v3.0.0+). 
 
-## Install Link : 
-* Firefox : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/
 
-* Chrome : _NOT published yet. yoy can install it throgh development mode_  
+## Installs: 
+* **Firefox** : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/
+
+* **Chrome** : _NOT published yet. you can install it through development mode_.
+
+    _(Actually, Google Chrome Add-on Store is paid ($5). If I get a good feedback from you, I'll happy to pay that money otherwise I don't want to waste my pocket-money - I'm a student)_ :smile:
 
 ## Demo: 
 It is a simple PHP project.
@@ -19,16 +26,22 @@ It is a simple PHP project.
 * Install the extension on your browser.
 * Install [`VSCode`](https://code.visualstudio.com/download) Editor & [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension. 
 * Confiure Live Server settings (`.vscode/settings.json`) as follows :
+ 
     ```js
     //.vscode/settings.json
+
     {
+        // Mainly for static files
         "liveServer.settings.useWebExt": true,
 
-        //If you have dynamic pages (PHP), you have to setup proxy - it's pretty easy. 
+        /*
+            If you have dynamic pages (PHP), you have to setup proxy - it's pretty easy. 
 
-        // In easy word, it means you're shifting your real url (actual PHP url) to another url (which LiveSever will start).
+            In easy word, it means you're shifting your real url (actual PHP url) 
+            to another url (which LiveSever will start).
+        */
         "liveServer.settings.proxy": {
-            "enable": false,
+            "enable": true, //switch on :)
             "baseUri": "/", //from where you want to proxy.  
             "proxyUri": "http://127.0.0.1:80" //the actual url.
         },
@@ -46,8 +59,3 @@ It is a simple PHP project.
 
 ## LICENSE
 This extension is licensed under the [MIT License](./LICENSE)
-
-
-
-
-
