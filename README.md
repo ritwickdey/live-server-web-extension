@@ -1,6 +1,5 @@
 # Live Server - Web Extension - BETA
 
-***[STILL IN UNDER DEVELOPEMENT]***
 
 ***[Please give a try. Setup is pretty easy. I need your feedback.]***
 
