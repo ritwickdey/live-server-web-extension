@@ -5,21 +5,56 @@
 *::after, 
 *::before {
     box-sizing: border-box;
+    font-size: 15px;
 }
 
 body {
     width: 200px;
 }
 
-#header {
+.header {
+    text-align: center;
     font-size: 20px;
-    font-family: sans-serif;
-    letter-spacing: 0.6px; 
+    font-weight: 600;
+    letter-spacing: 0.9px;
     padding: 5px 0px;
-    margin: 0;
+    margin: -10px -25px 10px -25px;
+    display: block;
+    background-color: #d5d5d5;
 }
 
 .content {
     padding: 0px 5px 5px 5px;
+}
+
+.row {
+    padding: 10px 0px 5px 0px;
+}
+
+.form-label {
+    display: block;
+    padding: 3px 0px;
+    font-weight: 500;
+}
+
+.form-control {
+    border: 1px solid #9c9696;
+    margin: auto;
+    border-radius: 5px;
+    padding: 8px 3px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+input:focus {
+    outline: none;
+}
+label[for="proxyCheckBox"], input[type="checkbox"] {
+    cursor: pointer;
 }
 

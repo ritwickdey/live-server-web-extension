@@ -10,12 +10,42 @@
 </head>
 
 <body>
+    <div class="header">
+        Live Server
+        <div></div>
+        Web Extension
+    </div>
     <div class="content">
-        <h2 id="header">Live Reload</h2>
-        <div class="tg-list">
-            <div class="tg-list-item">
-                <input class="tgl tgl-ios" id="liveReloadCheck" type="checkbox" />
-                <label class="tgl-btn" for="liveReloadCheck"></label>
+        <div class="row">
+            <label class="form-label" for="liveReloadCheck">Live Reload</label>
+            <div class="tg-list">
+                <div class="tg-list-item">
+                    <input class="tgl tgl-ios" id="liveReloadCheck" type="checkbox" />
+                    <label class="tgl-btn" for="liveReloadCheck"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                <input type="checkbox" id="proxyCheckBox">
+                <label for="proxyCheckBox">I don't want proxy setup</label>
+            </div>
+        </div>
+
+        <div id="serverSetup">
+            <div class="row">
+                <div>
+                    <label class="form-label" for="actualServer">Actual Server Address</label>
+                    <input class="form-control" type="text" id="actualServer" placeholder="http://localhost:80/php/">
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label class="form-label" for="liveServer">Live Server Address</label>
+                    <input class="form-control" type="text" id="liveServer" placeholder="http://127.0.0.1:5500/">
+                </div>
             </div>
         </div>
     </div>
