@@ -51,10 +51,28 @@ body {
 .hide {
     display: none;
 }
-input:focus {
+input:focus, button:focus {
     outline: none;
 }
 label[for="proxyCheckBox"], input[type="checkbox"] {
     cursor: pointer;
+}
+
+.btn {
+    background-color: #F0F0F0;
+    color: #808080;
+    border-radius: 3px;
+    height: 35px;
+    padding: 0 10px 0 10px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border: 0px;
+}
+
+.btn-highlight {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff
 }
 
