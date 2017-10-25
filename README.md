@@ -12,9 +12,7 @@ This extension is for [`Live Server`](https://marketplace.visualstudio.com/items
 ## Installs: 
 * **Firefox** : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/
 
-* **Chrome** : _NOT published yet. you can install it through development mode_.
-
-    _(Actually, Google Chrome Add-on Store is paid ($5). If I get a good feedback from you, I'll happy to pay that money otherwise I don't want to waste my pocket-money - I'm a student)_ :smile:
+* **Chrome** : https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/
 
 ## Demo: 
 It is a simple PHP project.
