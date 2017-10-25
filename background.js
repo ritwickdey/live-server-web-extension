@@ -1,4 +1,7 @@
 ; (function () {
+    
+    'use strict';
+
     const SETUP_STRING = 'live-reload-extension-new-setup';
 
     function sendMsgToAllContainPage(req, data) {
@@ -22,17 +25,7 @@
     }
 
     chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-        // if (msg && msg.status && msg.status === 'set-checkbox-status') {
-        //     localStorage.setItem(SETUP_STRING, msg.value);
-        //     sendMsgToAllContainPage('checkbox-status-updated', msg.value)
-        // }
-        // else if (msg && msg.status && msg.status === 'get-checkbox-status') {
-        //     const val = localStorage.getItem(SETUP_STRING) === 'true';
-        //     sendResponse({
-        //         value: val
-        //     });
-        // }
-
+       
         if (typeof msg !== 'object') return;
         if (msg.req === 'set-live-server-config') {
             storeConfigToLocalStorage(msg.data);

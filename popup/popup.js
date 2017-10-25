@@ -1,4 +1,6 @@
 ; (function () {
+    
+    'use strict';
 
     const liveReloadCheck = document.getElementById('liveReloadCheck');
     const proxyCheckBox = document.getElementById('proxyCheckBox');
@@ -23,11 +25,6 @@
     }
 
     liveReloadCheck.onclick = () => {
-        // const val = liveReloadCheck.checked;
-        // chrome.runtime.sendMessage({
-        //     status: 'set-checkbox-status',
-        //     value: val
-        // });
         submitForm();
     }
     proxyCheckBox.onclick = () => {
@@ -35,12 +32,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        // chrome.runtime.sendMessage({
-        //     status: 'get-checkbox-status'
-        // }, (res) => {
-        //     liveReloadCheck.checked = res.value;
-        //     serverSetupDiv.className = res.value ? 'show' : 'hide';
-        // });
         chrome.runtime.sendMessage({
             req: 'get-live-server-config'
         }, (data) => {

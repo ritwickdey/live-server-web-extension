@@ -1,6 +1,6 @@
 ; (function () {
-
-
+    
+    'use strict';
 
     const protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
     const address = protocol + window.location.host + window.location.pathname + '/ws';
@@ -21,12 +21,6 @@
 
 
     chrome.runtime.onMessage.addListener((msg) => {
-        // if (msg && msg.status && msg.status === 'checkbox-status-updated') {
-        //     isActive = msg.value;
-        //     if (isActive && !socket) {
-        //        init();
-        //     }
-        // }
        if(typeof msg !== 'object') return;
         if (msg.req === 'live-server-config-updated') {
             isActive = msg.data.isEnable;
@@ -35,16 +29,7 @@
             }
         }
     });
-
-    // chrome.runtime.sendMessage({
-    //     status: 'get-checkbox-status'
-    // }, (res) => {
-    //     isActive = res.value;
-    //     if (isActive && !socket) {
-    //        init();
-    //     }
-
-    // });
+    
     chrome.runtime.sendMessage({
         req: 'get-live-server-config'
     }, (data) => {
