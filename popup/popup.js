@@ -27,6 +27,10 @@
     liveReloadCheck.onclick = () => {
         submitForm();
     }
+    proxyCheckBox.onchange = () => {
+        submitForm();
+    }
+
     proxyCheckBox.onclick = () => {
         serverSetupDiv.className = proxyCheckBox.checked ? 'show' : 'hide';
     }
@@ -39,20 +43,18 @@
             proxyCheckBox.checked = data.proxySetup || false;
             actualServerAddress.value = data.actualUrl || '';
             liveServerAddress.value = data.liveServerUrl || '';
-            serverSetupDiv.className = data.value ? 'show' : 'hide';
+            serverSetupDiv.className =  proxyCheckBox.checked ? 'show' : 'hide';
         });
     });
 
     submitBtn.onclick = () => {
         submitForm();
         submitBtn.classList.remove('btn-highlight');
+        submitBtn.disabled = true;
     }
 
-    actualServerAddress.onkeyup = () => {
-        submitBtn.classList.add('btn-highlight');
-    }
-
-    liveServerAddress.onkeyup = () => {
+    liveServerAddress.onkeyup = actualServerAddress.onkeyup = () => {
+        submitBtn.disabled = false;
         submitBtn.classList.add('btn-highlight');
     }
 

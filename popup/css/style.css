@@ -10,6 +10,8 @@
 
 body {
     width: 200px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .header {
@@ -21,6 +23,17 @@ body {
     margin: -10px -25px 10px -25px;
     display: block;
     background-color: #d5d5d5;
+}
+
+.footer {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    margin: 6px -25px 0px -25px;
+    background-color: #d5d5d5;
+    display: block;
+    padding: 5px 0px;
 }
 
 .content {
@@ -76,3 +89,12 @@ label[for="proxyCheckBox"], input[type="checkbox"] {
     border-color: #007bff
 }
 
+.btn:disabled {
+    cursor: not-allowed;
+}
+
+.short-right-label {
+    font-size: 10px;
+    float: right;
+    margin-right: 6px;
+}
