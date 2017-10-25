@@ -27,14 +27,24 @@
 
     function reloadWindow(msg, data) {
         if (!isActive) return;
-        const currentUrl = window.location.protocol + '//' + window.location.host + '/';
+        const currentUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
         if (msg.data == 'reload' || msg.data == 'refreshcss') {
-            if (data.proxySetup === false || (data.proxySetup === true && currentUrl === data.actualUrl)) {
+            if (data.proxySetup === false || (data.proxySetup === true && currentUrl.startsWith(data.actualUrl))) {
                 window.location.reload();
             }
         }
-        console.log("reloaded. - From Extension");
+
+        logMsgForASingleTime();
     };
+
+    function logMsgForASingleTime() {
+        const key = 'oneTimeLog-live-server-web-extesion';
+        if (!sessionStorage.getItem(key)) {
+            console.log("Live reload Actived - Live Server Web Extension");
+            sessionStorage.setItem(key, 1);
+        }
+
+    }
 
 
     chrome.runtime.onMessage.addListener((msg) => {
