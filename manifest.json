@@ -4,7 +4,8 @@
     "version": "0.0.1",
     "description": "Live Reload For Dynamic Pages",
     "icons": {
-        "96": "./img/icon.png"
+        "96": "./img/icon.png",
+        "128": "./img/icon128.png"
     },
     "author": "Ritwick Dey",
     "short_name": "Live Server",
