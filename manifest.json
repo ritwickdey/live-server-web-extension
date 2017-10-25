@@ -1,22 +1,20 @@
 {
     "manifest_version": 2,
-    "name": "Live Server Web Extension BETA",
+    "name": "Live Server Web Extension",
     "version": "0.0.1",
-    "description": "Live Reload For Dynamic Pages",
+    "description": "Live Reload For Static & Dynamic Pages",
     "icons": {
         "96": "./img/icon.png",
         "128": "./img/icon128.png"
     },
     "author": "Ritwick Dey",
-    "short_name": "Live Server",
+    "short_name": "Live Server Web Extension",
     "homepage_url": "https://github.com/ritwickdey/live-server-web-extension",
     "content_scripts": [
         {
             "matches": [
-                "http://localhost/*",
-                "https://localhost/*",
-                "http://127.0.0.1/*",
-                "https://127.0.0.1/*"
+                "http://*/*",
+                "https://*/*"
             ],
             "js": [
                 "reload.js"
@@ -35,9 +33,7 @@
     },
     "permissions": [
         "tabs",
-        "http://localhost/*",
-        "https://localhost/*",
-        "http://127.0.0.1/*",
-        "https://127.0.0.1/*"
+        "http://*/*",
+        "https://*/*"
     ]
 }
