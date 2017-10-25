@@ -21,18 +21,34 @@
 
 
     chrome.runtime.onMessage.addListener((msg) => {
-        if (msg && msg.status && msg.status === 'checkbox-status-updated') {
-            isActive = msg.value;
+        // if (msg && msg.status && msg.status === 'checkbox-status-updated') {
+        //     isActive = msg.value;
+        //     if (isActive && !socket) {
+        //        init();
+        //     }
+        // }
+       if(typeof msg !== 'object') return;
+        if (msg.req === 'live-server-config-updated') {
+            isActive = msg.data.isEnable;
             if (isActive && !socket) {
                init();
             }
         }
     });
 
+    // chrome.runtime.sendMessage({
+    //     status: 'get-checkbox-status'
+    // }, (res) => {
+    //     isActive = res.value;
+    //     if (isActive && !socket) {
+    //        init();
+    //     }
+
+    // });
     chrome.runtime.sendMessage({
-        status: 'get-checkbox-status'
-    }, (res) => {
-        isActive = res.value;
+        req: 'get-live-server-config'
+    }, (data) => {
+        isActive = data.isEnable;
         if (isActive && !socket) {
            init();
         }
