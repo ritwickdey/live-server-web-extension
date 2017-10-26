@@ -79,7 +79,7 @@ There are two ways to setup `Live Server Web Extension`.
 ## What is new ?
 
 * #### Verision 1.0.0 (26.10.17)
-    * ***[New Feature]*** No need to setup proxy. There is now a way to setup - that is pretty easy & stright-forword.
+    * ***[New Feature]*** No need to setup proxy. There is now a way to setup - that is pretty easy & straight-forward.
 
     * ***[Enhancement]*** Pop-up window is redesigned.
 
