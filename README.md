@@ -1,7 +1,8 @@
 # Live Server - Web Extension
 
 
-***[Please give a try. Setup is pretty easy. I need your feedback.]***
+***Need Help? [Watch Video Tutorial](https://www.youtube.com/watch?v=54wcX1G2GH8)***
+
 
 ***[HELP! NEEDS A GOOD DOCUMENTATION [#4](https://github.com/ritwickdey/live-server-web-extension/issues/4)]***
 
@@ -32,6 +33,8 @@ There are two ways to setup `Live Server Web Extension`.
   
 ### Direct Setup
 
+***[Watch Video Tutorial](https://www.youtube.com/watch?v=54wcX1G2GH8) or follow the steps below***
+
 * Install the extension on your browser.
 
 * Install [`VSCode`](https://code.visualstudio.com/download) Editor & [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension.
@@ -44,6 +47,7 @@ There are two ways to setup `Live Server Web Extension`.
 * Now at the `Live Server` add `http://localhost:5500/`.
 
 * Now stay on `http://localhost/php/`. On every changes, your page will be refreshed automaticly.
+
 
 ----------
 
