@@ -3,6 +3,8 @@
 
 ***[Please give a try. Setup is pretty easy. I need your feedback.]***
 
+***[HELP! NEEDS A GOOD DOCUMENTATION [#4](https://github.com/ritwickdey/live-server-web-extension/issues/4)]***
+
 A browser extension that helps you to live reload feature for dynamic content (PHP, Node.js, ASP.NET -- Whatever, it doesn't matter). 
 
 This extension is for [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (VSCode Extension - required v3.0.0+).
