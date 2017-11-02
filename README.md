@@ -1,10 +1,13 @@
 # Live Server - Web Extension
 
+<hr>
 
 ***Need Help? [Watch Video Tutorial](https://www.youtube.com/watch?v=54wcX1G2GH8)***
 
 
 ***[HELP! NEEDS A GOOD DOCUMENTATION [#4](https://github.com/ritwickdey/live-server-web-extension/issues/4)]***
+
+<hr>
 
 A browser extension that helps you to live reload feature for dynamic content (PHP, Node.js, ASP.NET -- Whatever, it doesn't matter). 
 
