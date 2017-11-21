@@ -42,14 +42,16 @@ There are two ways to setup `Live Server Web Extension`.
 
 * Install [`VSCode`](https://code.visualstudio.com/download) Editor & [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension.
 
-* Start `Live Server` (assuming the port of live server is `5500`).
+* Start `Live Server` (assuming the port of live server is `5500`). This server will be used by the extension to know, if any of the files have changed.
+
+* Open a terminal and navigate to the folder your project lives in (generally index.php lives here..) Start a web server by running `php -S localhost:8000`
 
 * Now open pop-up menu of `Live Server Web Extension` and check the option `I don't want proxy setup`. [Follow the screenshot](./img/screenshots/live-server-web-extension-easy-setup.png).
 
-* Now at the Actual Server add `http://localhost/php/` (assuming your actual server is `http://localhost/php/`).
+* Now at the Actual Server add `http://localhost:8000/`.
 * Now at the `Live Server` add `http://localhost:5500/`.
 
-* Now stay on `http://localhost/php/`. On every changes, your page will be refreshed automaticly.
+* Now open up `http://localhost:8000/` in your browser. On every changes, your page will be refreshed automaticly.
 
 
 ----------
