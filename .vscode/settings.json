@@ -1,4 +1,10 @@
 {
+    "markdown.preview.fontSize": 13,
+    "[markdown]": {
+        "editor.fontSize": 14,
+        "editor.wordWrap": "off",
+        "files.trimTrailingWhitespace": false
+    },
     // "liveServer.settings.proxy": {
     //     "enable": true,
     //     "baseUri": "/",

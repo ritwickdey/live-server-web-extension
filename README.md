@@ -1,94 +1,29 @@
 # Live Server - Web Extension
+>**HELP! NEEDS A GOOD DOCUMENTATION [#4](https://github.com/ritwickdey/live-server-web-extension/issues/4)**
 
-<hr>
+## Brief Description
+This browser add-on is an extension for a developer tool in VS Code editor ([Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)). With this add-on installed, along with the VS Code extension, it gives you a functionality to automatically update your website on save; for other files than just `.htm` and `.html`.
 
-***Need Help? [Watch Video Tutorial](https://www.youtube.com/watch?v=54wcX1G2GH8)***
+So, more specifically, with this add-on, live reload will also work with the following server-side files like: `PHP`, `Node.js` and `ASP.NET`.
 
+<br><hr>
 
-***[HELP! NEEDS A GOOD DOCUMENTATION [#4](https://github.com/ritwickdey/live-server-web-extension/issues/4)]***
+## Documentation
+***[About.md](./docs/About.md)***  
+***[Setup.md](./docs/Setup.md)***  
+***[FAQ.md](./docs/FAQ.md)***  
 
-<hr>
+**Firefox** : <small>https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/</small>  
+**Chrome** : <small>https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/</small>  
 
-A browser extension that helps you to live reload feature for dynamic content (PHP, Node.js, ASP.NET -- Whatever, it doesn't matter). 
+<br>
 
-This extension is for [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (VSCode Extension - required v3.0.0+).
+#### The Common Misconceptions
+Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `ASP.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save your server-side code.
 
-*[all through you can use the npm package [live-server](https://www.npmjs.com/package/live-server)]*
+<br><hr>
 
-## Installs: 
-* **Firefox** : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/
-
-* **Chrome** : https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/
-
-## Demo: 
-It is a simple PHP project.
-
-![](./img/screenshots/live-server-web-extension.gif)
-
-## Setup: 
-There are two ways to setup `Live Server Web Extension`. 
-
->_[Note: live Server will not able to compile you dynamic pages, you've to use the existing server, live server will help you to reload the pages when you made any change on your code, so that you have not to reload manually browser on every changes]_
-
-1.  [Direct Setup](#direct-setup) (Easy One, stright-forword) 
-2.  [Proxy Setup](#proxy-setup)
-  ----------
-  
-### Direct Setup
-
-***[Watch Video Tutorial](https://www.youtube.com/watch?v=54wcX1G2GH8) or follow the steps below***
-
-* Install the extension on your browser.
-
-* Install [`VSCode`](https://code.visualstudio.com/download) Editor & [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension.
-
-* Start `Live Server` (assuming the port of live server is `5500`). This server will be used by the extension to know, if any of the files have changed.
-
-* In case of PHP & if you're not using XAMPP or any other tool/server, Open a terminal and navigate to the folder your project lives in (generally index.php lives here..) Start a web server by running `php -S localhost:8000`
-
-* Now open pop-up menu of `Live Server Web Extension` and check the option `I don't want proxy setup`. [Follow the screenshot](./img/screenshots/live-server-web-extension-easy-setup.png).
-
-* Now at the Actual Server add `http://localhost:8000/`. (In which address your PHP/Node.js is running)
-* Now at the `Live Server` add `http://localhost:5500/`.
-
-* Now open up `http://localhost:8000/` in your browser. On every changes, your page will be refreshed automaticly.
-
-
-----------
-
-### Proxy Setup
-
-* Install the extension on your browser.
-* Install [`VSCode`](https://code.visualstudio.com/download) Editor & [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension. 
-* Confiure Live Server settings (`.vscode/settings.json`) as follows :
- 
-    ```js
-    //.vscode/settings.json
-
-    {
-        // Mainly for static files
-        "liveServer.settings.useWebExt": true,
-
-        /*
-            If you have dynamic pages (PHP), you have to setup proxy - it's pretty easy. 
-
-            In easy word, it means you're shifting your real url (actual PHP url) 
-            to another url (which LiveSever will start).
-        */
-        "liveServer.settings.proxy": {
-            "enable": true, //switch on :)
-            "baseUri": "/", //from where you want to proxy (live server).  
-            "proxyUri": "http://127.0.0.1:80" //the actual server url (NOT live server).
-        },
-    }
-
-    ```
-    * ...And you're done! Just Open Live Server _`(ctrl+shift+p > "Open Live Server")`_ and don't forget to turn on live reload from your browser.
-    * Note: You have stay on the new url that will be given by Live Server.
-
-
-## What is new ?
-
+## News
 * #### Verision 1.0.0 (26.10.17)
     * ***[New Feature]*** No need to setup proxy. There is now a way to setup - that is pretty easy & straight-forward.
 
@@ -100,6 +35,8 @@ There are two ways to setup `Live Server Web Extension`.
 * #### Version 0.0.1 (22.10.17)
     *  Initial Release under BETA.
 
+<br><hr>
 
-## LICENSE
+
+## License
 This extension is licensed under the [MIT License](./LICENSE)
