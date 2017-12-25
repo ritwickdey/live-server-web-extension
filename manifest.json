@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Live Server Web Extension",
     "version": "1.0.0",
-    "description": "Live Reload For Static & Dynamic Pages",
+    "description": "This browser add-on is an extension for a developer tool in VS Code editor (Live Server). With this add-on installed, along with the VS Code extension, it gives you a functionality to automatically update your website on save; for other files than just .htm and .html.",
     "icons": {
         "96": "./img/icon.png",
         "128": "./img/icon128.png"

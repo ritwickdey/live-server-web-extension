@@ -1,24 +1,27 @@
 # About
-![Illustration GIF-image](./../img/screenshots/live-server-web-extension.gif)
 
 ## That's why I built this extension.
-**Lorem ipsum dolor** sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?
+The reason I built this browser add-on is to delight the experience of server-side programming...lorem ipsum dolor
 
 <br>
-<br>
 
-## Code Insight
-```h
+![Illustration GIF-image](./../img/screenshots/live-server-web-extension.gif)
+
+<br><br>
+
+# Code Insight
+```js
 master/
 ┃
 ┣━━img/          // Folder with images
 ┃
 ┣━━popup/        // Folder for the popup page
 ┃
-┣━━manifest.json // Initialize extension
+┣━━manifest.json // Initiate the extension to app store
 ┣━━background.js // Background script
-┗━━reload.js     // Reload funcionallity
+┗━━reload.js     // Reload functionality
 ```
+<br>
 
 #### manifest.json
 The manifest.json file is a JSON-formatted file, and is the only file that every extension using WebExtension APIs must contain.
@@ -37,6 +40,5 @@ Background scripts are loaded as soon as the extension is loaded and stay loaded
 <br>
 
 #### reload.js
-info is needed...
-
+info is needed...  
 *[all through you can use the npm package [live-server](https://www.npmjs.com/package/live-server)]*
