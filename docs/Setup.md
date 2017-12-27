@@ -1,100 +1,77 @@
 # Setup
->#### The Common Misconceptions
->Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `ASP.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save.
+#### The Common Misconceptions
+Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save.
+
+In other words. If you just want the reload function when you work with `.html` files, then you do not need this extension at all.
 
 <br>
 
 ***Need Help? [Watch Video Tutorial](https://www.youtube.com/watch?v=54wcX1G2GH8)***  
 
-<br><hr>
+<br><br>
 
-## There are two ways to setup `Live Server Web Extension`.
+# Direct Setup<sup><sub><sup>`Easy`</sup></sub></sup> | Proxy Setup<sup><sub><sup>`Advanced`</sup></sub></sup>
 
-1. [Direct Setup](#direct-setup) (Easy)
-2. [Proxy Setup](#proxy-setup) (Advanced)
+### Direct Setup
 
-<br><hr>
-
-## Direct Setup
-
-1. Install [VS Code](https://code.visualstudio.com/download) from Microsoft (code editor).
-2. Install VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (extension).
+1. Install [VS Code](https://code.visualstudio.com/download) from Microsoft. <sup>(code editor)</sup>
+2. Install VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). <sup>(extension to code editor)</sup>
 3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
-4. Install and run a server on your machine
-	+ [PHP](http://php.net/downloads.php) (just the preprocessor)
-	+ [XAMPP](https://www.apachefriends.org/index.html) (cross-platform)
-	+ [MAMP](https://www.mamp.info/en/downloads/) (mac)
-	+ [WAMP](http://www.wampserver.com/en/) (windows)
+4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
 5. Enter the neccesary fields (screenshot below)
-    + **Actual Server Address:** is the address where your server is located and the port.
-	+ **Live Server Address:** is the address where your VS code extension is running.
-6. Push the Go Live-button in your editor.
+    1. **Actual Server Address:** is the address where your server is located and the port.
+	2. **Live Server Address:** is the address where your VS code extension is running.
+6. Push the `Go Live`-button in your editor's statusbar.
 7. Visit the `Actual Server Address`
 
-![](./../img/screenshots/direct-setup.png)
+![two-step-image](./../img/screenshots/direct-setup.png)
 
 <br><hr>
 
-## Proxy Setup
+### Proxy Setup
+1. Install [VS Code](https://code.visualstudio.com/download) from Microsoft. <sup>(code editor)</sup>
+2. Install VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). <sup>(extension to code editor)</sup>
+3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
+4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
+5. Enter the neccesary values (code block below)
+    1. **Proxy Address:** is the folder you want proxy from. The path is relative to the workspace.
+	2. **Live Server Address:** is the address where your VS code extension is running.
+6. Push the `Go Live`-button in your editor's statusbar.
 
-* Install the extension on your browser.
-* Install [`VSCode`](https://code.visualstudio.com/download) Editor & [`Live Server`](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension.
-* Confiure Live Server settings (`.vscode/settings.json`) as follows :
-
-    ```js
-    //.vscode/settings.json
-
-    {
-        // Mainly for static files
-        "liveServer.settings.useWebExt": true,
-
-        /*
-            If you have dynamic pages (PHP), you have to setup proxy - it's pretty easy.
-
-            In easy word, it means you're shifting your real url (actual PHP url)
-            to another url (which LiveSever will start).
-        */
-        "liveServer.settings.proxy": {
-            "enable": true, //switch on :)
-            "baseUri": "/", //from where you want to proxy (live server).
-            "proxyUri": "http://127.0.0.1:80" //the actual server url (NOT live server).
-        },
-    }
-
-    ```
-    * ...And you're done! Just Open Live Server _`(ctrl+shift+p > "Open Live Server")`_ and don't forget to turn on live reload from your browser.
-    * Note: You have stay on the new url that will be given by Live Server.
-
-<!-- <br>
-
-# All available VS Code settings
-```json
+*`.vscode/settings.json`*
+```js
 {
-    "liveServer.settings.AdvanceCustomBrowserCmdLine": null,
-    "liveServer.settings.ChromeDebuggingAttachment": false,
-    "liveServer.settings.CustomBrowser": "null",
-    "liveServer.settings.donotShowInfoMsg": false,
-    "liveServer.settings.donotVerifyTags": false,
-    "liveServer.settings.host": "127.0.0.1",
-    "liveServer.settings.https": {
-        "enable": false,
-        "cert": "",
-        "key": "",
-        "passphrase": ""
-    },
-    "liveServer.settings.ignoreFiles": [
-        ".vscode/**",
-        "**/*.scss",
-        "**/*.sass"
-    ],
-    "liveServer.settings.NoBrowser": false,
-    "liveServer.settings.port": 5500,
+    // Mainly for static files
+    "liveServer.settings.useWebExt": true,
+
+    // This means that you change your real URL (current PHP url) 
+    // to another URL (which Live Sever starts).
     "liveServer.settings.proxy": {
-        "enable": false,
-        "baseUri": "/",
-        "proxyUri": "http://127.0.0.1:80"
+        "enable": true,
+        "baseUri": "/",                             //  i. Workspace folder.
+        "proxyUri": "http://localhost:80/workspace" // ii. Actual Server Address.
     },
-    "liveServer.settings.root": "/",
-    "liveServer.settings.useWebExt": false
 }
-``` -->
+
+```
+>**Note:** You need to stay on the new host that will be provided by Live Server.
+
+<br><br><hr>
+
+# Servers and Frameworks
+
+
+### PHP
++ [PHP](http://php.net/downloads.php) <sup><sub>`just the preprocessor`</sub></sup>
++ [XAMPP](https://www.apachefriends.org/index.html) <sup><sub>`cross-platform`</sub></sup>
++ [MAMP](https://www.mamp.info/en/downloads/) <sup><sub>`mac`</sub></sup>
++ [WAMP](http://www.wampserver.com/en/) <sup><sub>`windows`</sub></sup>
+
+
+### NodeJS
++ [ExpressJS](https://expressjs.com/en/starter/installing.html) <sup><sub>`cross-platform`</sub></sup>
+
+
+### .Net
++ [DotNet Core](https://www.microsoft.com/net/learn/get-started/windows) <sup><sub>`cross-platform`</sub></sup>
++ [IIS](https://www.iis.net/) <sup><sub>`windows`</sub></sup>
