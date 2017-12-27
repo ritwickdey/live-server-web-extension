@@ -34,8 +34,8 @@ In other words. If you just want the reload function when you work with `.html` 
 3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
 4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
 5. Enter the neccesary values (code block below)
-    1. **Proxy Address:** is the folder you want proxy from. The path is relative to the workspace.
-	2. **Live Server Address:** is the address where your VS code extension is running.
+    1. **Proxy Path:** is the path to the folder you want proxy from. The path is relative to the workspace.
+	2. **Actual Server Address:** is the address where your server is located and the port.
 6. Push the `Go Live`-button in your editor's statusbar.
 
 *`.vscode/settings.json`*
@@ -48,7 +48,7 @@ In other words. If you just want the reload function when you work with `.html` 
     // to another URL (which Live Sever starts).
     "liveServer.settings.proxy": {
         "enable": true,
-        "baseUri": "/",                             //  i. Workspace folder.
+        "baseUri": "/",                             //  i. Proxy Path.
         "proxyUri": "http://localhost:80/workspace" // ii. Actual Server Address.
     },
 }
