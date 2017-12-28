@@ -3,7 +3,8 @@
     "[markdown]": {
         "editor.fontSize": 14,
         "editor.wordWrap": "off",
-        "files.trimTrailingWhitespace": false
+        "files.trimTrailingWhitespace": false,
+        "editor.minimap.enabled": false
     },
     // "liveServer.settings.proxy": {
     //     "enable": true,
