@@ -14,16 +14,7 @@ I'm new to this live-server thing. I have used it for *`.html`* pages, and it wo
 	+ [WAMP](http://www.wampserver.com/en/) (windows)
 3. Visit the ***Actual Server Address***: `http://localhost:[port_number]/[workspace]`, not the VS Code extension's ***Live Server Address***: `http://127.0.0.1:5500/`  
 
-
-<br><br><hr><br>
-
-<!-- ### Another question
-Lorem ipsum dolor
-
-**Answer:**  
-Lorem ipsum dolor
-
-<br><hr><br> -->
+<br><br><hr>
 
 >## The Common Misconceptions
 >Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save.
