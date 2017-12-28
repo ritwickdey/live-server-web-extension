@@ -2,7 +2,7 @@
 #### The Common Misconceptions
 Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save.
 
-In other words. If you just want the reload function when you work with `.html` files, then you do not need this extension at all.
+In other words. If you just want the reload function when you work with .html files, then you do not need this extension at all.
 
 <br>
 
@@ -34,8 +34,9 @@ In other words. If you just want the reload function when you work with `.html` 
 3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
 4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
 5. Enter the neccesary values (code block below)
-    1. **Proxy Path:** is the path to the folder you want proxy from. The path is relative to the workspace.
-	2. **Actual Server Address:** is the address where your server is located and the port.
+    1. **enable:** whether it is enabled or not.
+    2. **baseUri:** is the path to the folder you want proxy from. The path is relative to the workspace.
+    3. **proxyUri:** is the address where your server (xampp or similar server) is located, and the port.
 6. Push the `Go Live`-button in your editor's statusbar.
 
 *`.vscode/settings.json`*
@@ -47,16 +48,16 @@ In other words. If you just want the reload function when you work with `.html` 
     // This means that you change your real URL (current PHP url) 
     // to another URL (which Live Sever starts).
     "liveServer.settings.proxy": {
-        "enable": true,
-        "baseUri": "/",                             //  i. Proxy Path.
-        "proxyUri": "http://localhost:80/workspace" // ii. Actual Server Address.
+        "enable": true,                             //   i. enabled
+        "baseUri": "/",                             //  ii. workspace
+        "proxyUri": "http://localhost:80/workspace" // iii. Actual Server Address
     },
 }
 
 ```
 >**Note:** You need to stay on the new host that will be provided by Live Server.
 
-<br><br><hr>
+<br><br><br>
 
 # Servers and Frameworks
 

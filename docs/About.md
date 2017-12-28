@@ -1,6 +1,6 @@
 # About
 
-## That's why I built this extension.
+### That's why I built this extension.
 The reason I built this browser add-on is to delight the experience of server-side programming...lorem ipsum dolor
 
 <br>
