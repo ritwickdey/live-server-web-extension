@@ -15,8 +15,8 @@ So specifically, with this add-on, live reload will also work with the following
 ***[FAQ.md](./docs/FAQ.md)***  
 <br>
 
-#### The Common Misconceptions
-Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save your server-side code.
+#### The Common Misconception
+Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. This add-on will give you the *reloading function*, so you do not need to refresh the page every time you save your server-side code.
 
 <br><hr>
 

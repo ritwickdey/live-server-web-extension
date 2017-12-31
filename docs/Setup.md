@@ -1,8 +1,8 @@
 # Setup
-#### The Common Misconceptions
+#### The Common Misconception
 Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. It will give you the *reloading function*, so you do not need to refresh the page every time you save.
 
-In other words. If you just want the reload function when you work with .html files, then you do not need this extension at all.
+In other words. If you just want the reload feature when working with .html files, then you do not need this add-on at all.
 
 <br>
 
