@@ -10,7 +10,7 @@ In other words. If you just want the reload feature when working with .html file
 
 <br><br>
 
-# Direct Setup<sup><sub><sup>`Easy`</sup></sub></sup> | Proxy Setup<sup><sub><sup>`Advanced`</sup></sub></sup>
+# Direct Setup<sup><sub><sup>`Easy`</sup></sub></sup> || Proxy Setup<sup><sub><sup>`Advanced`</sup></sub></sup>
 
 ### Direct Setup
 
@@ -50,7 +50,7 @@ In other words. If you just want the reload feature when working with .html file
     "liveServer.settings.proxy": {
         "enable": true,                             //   i. enabled
         "baseUri": "/",                             //  ii. workspace
-        "proxyUri": "http://localhost:80/workspace" // iii. Actual Server Address
+        "proxyUri": "http://localhost:80/workspace" // iii. actual address
     },
 }
 

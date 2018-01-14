@@ -6,13 +6,13 @@
 I'm new to this live-server thing. I have used it for *`.html`* pages, and it worked flawlessly! But now, when I want to use it for php pages, it downloads the .php file instead of executing it.
 
 **Answer:**  
-1. [The Common Misconceptions](#the-common-misconception)
+1. [The Common Misconception](#the-common-misconception)
 2. You will need to install a server on your machine or download the necessary requirements. Here is a Stackoverflow question: [PHP server on local machine?](https://stackoverflow.com/questions/1678010/php-server-on-local-machine)
 	+ [PHP](http://php.net/downloads.php) (just the preprocessor without apache)
 	+ [XAMPP](https://www.apachefriends.org/index.html) (cross-platform)
 	+ [MAMP](https://www.mamp.info/en/downloads/) (mac)
 	+ [WAMP](http://www.wampserver.com/en/) (windows)
-3. Visit the ***Actual Server Address***: `http://localhost:[port_number]/[workspace]`, not the VS Code extension's ***Live Server Address***: `http://127.0.0.1:5500/`  
+3. Visit the ***Actual Server Address***: `http://localhost/[workspace]`, not the VS Code extension's ***Live Server Address***: `http://127.0.0.1:5500/`  
 
 <br><br><hr><br>
 
@@ -23,7 +23,7 @@ Hi, I wonder why I have to run my own server when the vscode extension will star
 The two main reasons are the flexibility, and the complexity of server-side environment.
 For instance, in order to be able to use this add-on in all environments and not to 
 prevent the user from a specific php verion, or running Apache with PHP.
-It is therefore preferable that the user can decide for yourself which environment to use. 
+It is therefore preferable that you as a user can decide for yourself which environment to use. 
 Another thing is that the server side is heavier than the client side because it needs a 
 larger server environment to run- and preprocess your code in PHP, NodeJS or .NET.
 
