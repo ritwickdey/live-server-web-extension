@@ -18,11 +18,12 @@ In other words. If you just want the reload feature when working with .html file
 2. Install VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). <sup>(extension to code editor)</sup>
 3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
 4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
-5. Enter the neccesary fields (screenshot below)
+5. Place your app on the server you want to use and open your project there.
+6. Enter the neccesary fields (screenshot below)
     1. **Actual Server Address:** is the address where your server is located and the port.
-	2. **Live Server Address:** is the address where your VS code extension is running.
-6. Push the `Go Live`-button in your editor's statusbar.
-7. Visit the `Actual Server Address`
+    2. **Live Server Address:** is the address where your VS code extension is running.
+7. Push the `Go Live`-button in your editor's statusbar.
+8. Visit the `Actual Server Address`
 
 ![two-step-image](./../img/screenshots/direct-setup.png)
 
@@ -33,11 +34,12 @@ In other words. If you just want the reload feature when working with .html file
 2. Install VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). <sup>(extension to code editor)</sup>
 3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
 4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
-5. Enter the neccesary values (code block below)
+5. Place your app on the server you want to use and open your project there.
+6. Enter the neccesary values (code block below)
     1. **enable:** whether it is enabled or not.
     2. **baseUri:** is the path to the folder you want proxy from. The path is relative to the workspace.
     3. **proxyUri:** is the address where your server (xampp or similar server) is located, and the port.
-6. Push the `Go Live`-button in your editor's statusbar.
+7. Push the `Go Live`-button in your editor's statusbar.
 
 *`.vscode/settings.json`*
 ```js
