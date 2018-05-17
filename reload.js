@@ -17,7 +17,7 @@
             if (!data.actualUrl.endsWith('/'))
                 data.actualUrl = data.actualUrl + '/';
 
-            address = data.liveServerUrl.replace('http', 'ws');
+            address = data.liveServerUrl.replace('http', 'ws') + '/ws';
         }
         socket = new WebSocket(address);
         socket.onmessage = (msg) => {
