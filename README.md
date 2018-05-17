@@ -32,6 +32,9 @@ Neither the browser add-on nor the VS Code extension will host a server for: `PH
 
 ### News
 
+* #### Verision 1.2.0 (26.10.17)
+    * Serious Bug Fixed  
+
 * #### Verision 1.1.0 (26.10.17)
     * ***[Bug Fixed]*** This extension was broken with Live Server v4.0.0 update. [[#127](https://github.com/ritwickdey/vscode-live-server/issues/127)]
     * Popup window UI updated

@@ -8,7 +8,7 @@
     let isActive = false;
 
     function init(data) {
-        if (data.proxySetup === true) {
+        if (!data.proxySetup) {
             //Correction
             if (data.liveServerUrl.indexOf('http') !== 0)
                 data.liveServerUrl = 'http' + data.liveServerUrl;
