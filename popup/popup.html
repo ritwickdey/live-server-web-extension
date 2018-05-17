@@ -14,6 +14,8 @@
         Live Server
         <div></div>
         Web Extension
+
+        <p>"Makes your existing server live"</p>
     </div>
     <div class="content">
         <div class="row">
@@ -37,14 +39,14 @@
             <div class="row">
                 <div>
                     <label class="form-label" for="actualServer">Actual Server Address</label>
-                    <input class="form-control" type="text" id="actualServer" placeholder="http://localhost:80/php/">
+                    <input class="form-control" type="text" id="actualServer" placeholder="http://Your Server Address">
                 </div>
             </div>
 
             <div class="row">
                 <div>
                     <label class="form-label" for="liveServer">Live Server Address</label>
-                    <input class="form-control" type="text" id="liveServer" placeholder="http://127.0.0.1:5500/">
+                    <input class="form-control" type="text" id="liveServer" placeholder="Eg. http://127.0.0.1:5500/">
                     <a class="short-right-label" target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Install Live Server</a>
                 </div>
             </div>
@@ -55,6 +57,7 @@
     </div>
     <div class="footer">
         <a target="_blank" href="https://github.com/ritwickdey/live-server-web-extension">Need Help?</a>
+        <p>NOTE: You need two server. Live Server will give `live` power of your existing server (May be Wamp, XAMPP or IIS or Node.js)</p>
     </div>
     <script src="./popup.js"></script>
 </body>

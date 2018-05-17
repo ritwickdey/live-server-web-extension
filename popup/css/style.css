@@ -6,10 +6,12 @@
 *::before {
     box-sizing: border-box;
     font-size: 15px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    width: 200px;
+    width: 250px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -19,10 +21,16 @@ body {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.9px;
-    padding: 5px 0px;
-    margin: -10px -25px 10px -25px;
+    padding: 15px 0px;
     display: block;
     background-color: #d5d5d5;
+}
+
+.header > p {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 5px;
 }
 
 .footer {
@@ -30,14 +38,19 @@ body {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.9px;
-    margin: 6px -25px 0px -25px;
     background-color: #d5d5d5;
     display: block;
-    padding: 5px 0px;
+    padding: 5px ;
+}
+
+.footer > p {
+    font-size: 10px;
+    padding: 10px;
 }
 
 .content {
-    padding: 0px 5px 5px 5px;
+    width: 90%;
+    margin: auto;
 }
 
 .row {
@@ -55,6 +68,7 @@ body {
     margin: auto;
     border-radius: 5px;
     padding: 8px 3px;
+    width: 100%;
 }
 
 .show {
