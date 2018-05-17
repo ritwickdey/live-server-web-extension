@@ -1,4 +1,6 @@
 # Live Server - Web Extension
+Makes your existing server live
+
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/)[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/)[![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/reviews)  
 [![Mozilla Add-on](https://img.shields.io/amo/v/live-server-web-extension.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/)[![Mozilla Add-on](https://img.shields.io/amo/users/live-server-web-extension.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/)[![Mozilla Add-on](https://img.shields.io/amo/rating/live-server-web-extension.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/reviews/)  
 
@@ -21,6 +23,12 @@ Neither the browser add-on nor the VS Code extension will host a server for: `PH
 <br><hr>
 
 ### News
+
+* #### Verision 1.1.0 (26.10.17)
+    * ***[Bug Fixed]*** This extension was broken with Live Server v4.0.0 update. [[#127](https://github.com/ritwickdey/vscode-live-server/issues/127)]
+    * Popup window UI updated
+    * Docs updated.
+
 * #### Verision 1.0.0 (26.10.17)
     * ***[New Feature]*** No need to setup proxy. There is now a way to setup - that is pretty easy & straight-forward.
 
@@ -29,8 +37,7 @@ Neither the browser add-on nor the VS Code extension will host a server for: `PH
     * ***[Bug Fixes]*** Small bug fixes related to the turn on/off switch.
 
     * No BETA. General Release.
-* #### Version 0.0.1 (22.10.17)
-    *  Initial Release under BETA.
+
 
 <br><hr>
 

@@ -41,7 +41,7 @@
         }, (data) => {
             console.log('popupwidnow')
             liveReloadCheck.checked = data.isEnable || false;
-            noProxyCheckBox.checked = data.proxySetup || false;
+            noProxyCheckBox.checked = !data.proxySetup;
             actualServerAddress.value = data.actualUrl || '';
             liveServerAddress.value = data.liveServerUrl || '';
             serverSetupDiv.className =  noProxyCheckBox.checked ? 'show' : 'hide';
