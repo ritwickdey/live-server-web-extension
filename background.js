@@ -2,7 +2,7 @@
 
     'use strict';
 
-    const SETUP_STRING = 'live-reload-extension-new-setup';
+    const SETUP_STRING = 'live-reload-extension-new-setup-v2';
 
     function sendMsgToAllContainPage(req, data) {
         chrome.tabs.query({}, tabs => {

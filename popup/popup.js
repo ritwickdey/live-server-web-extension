@@ -3,7 +3,7 @@
     'use strict';
 
     const liveReloadCheck = document.getElementById('liveReloadCheck');
-    const proxyCheckBox = document.getElementById('proxyCheckBox');
+    const noProxyCheckBox = document.getElementById('noProxyCheckBox');
     const actualServerAddress = document.getElementById('actualServer');
     const liveServerAddress = document.getElementById('liveServer');
     const submitBtn = document.getElementById('submitBtn');
@@ -13,7 +13,7 @@
     function submitForm() {
         const formData = {
             isEnable: liveReloadCheck.checked,
-            proxySetup: proxyCheckBox.checked,
+            proxySetup: !noProxyCheckBox.checked,
             actualUrl: actualServerAddress.value || '',
             liveServerUrl: liveServerAddress.value || ''
         }
@@ -27,23 +27,24 @@
     liveReloadCheck.onclick = () => {
         submitForm();
     }
-    proxyCheckBox.onchange = () => {
+    noProxyCheckBox.onchange = () => {
         submitForm();
     }
 
-    proxyCheckBox.onclick = () => {
-        serverSetupDiv.className = proxyCheckBox.checked ? 'show' : 'hide';
+    noProxyCheckBox.onclick = () => {
+        serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         chrome.runtime.sendMessage({
             req: 'get-live-server-config'
         }, (data) => {
+            console.log('popupwidnow')
             liveReloadCheck.checked = data.isEnable || false;
-            proxyCheckBox.checked = data.proxySetup || false;
+            noProxyCheckBox.checked = data.proxySetup || false;
             actualServerAddress.value = data.actualUrl || '';
             liveServerAddress.value = data.liveServerUrl || '';
-            serverSetupDiv.className =  proxyCheckBox.checked ? 'show' : 'hide';
+            serverSetupDiv.className =  noProxyCheckBox.checked ? 'show' : 'hide';
         });
     });
 
