@@ -12,13 +12,21 @@ So specifically, with this add-on, live reload will also work with the following
 <br><hr>
 
 ### Documentation
-***[About.md](./docs/About.md)***  
-***[Setup.md](./docs/Setup.md)***  
-***[FAQ.md](./docs/FAQ.md)***  
+***[Setup Tutorial](./docs/Setup.md)***  
+***[About The Extension](./docs/About.md)***  
+***[FAQ](./docs/FAQ.md)***  
 <br>
 
 #### The Common Misconception
 Neither the browser add-on nor the VS Code extension will host a server for: `PHP`, `.NET` or `NodeJS`. This add-on will give you the *reloading function*, so you do not need to refresh the page every time you save your server-side code.
+
+<br><hr>
+
+
+### Store Links
+
+* Chrome : https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/
+* Firefox : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/ 
 
 <br><hr>
 
