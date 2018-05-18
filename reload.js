@@ -29,7 +29,7 @@
         if (!isActive) return;
         const currentUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
         if (msg.data == 'reload' || msg.data == 'refreshcss') {
-            if (data.proxySetup === false || (data.proxySetup === true && currentUrl.startsWith(data.actualUrl))) {
+            if (data.proxySetup === true || (data.proxySetup === false && currentUrl.startsWith(data.actualUrl))) {
                 window.location.reload();
             }
         }
