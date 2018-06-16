@@ -10,16 +10,16 @@
     function init(data) {
         if (!data.proxySetup) {
             //Correction
-            if (data.liveServerUrl.indexOf('http') !== 0)
-                data.liveServerUrl = 'http' + data.liveServerUrl;
+            // if (data.liveServerUrl.indexOf('http') !== 0)
+            //     data.liveServerUrl = 'http' + data.liveServerUrl;
             if (data.actualUrl.indexOf('http') !== 0)
-                data.actualUrl = 'http' + data.actualUrl;
+                data.actualUrl = 'http://' + data.actualUrl;
             if (!data.actualUrl.endsWith('/'))
                 data.actualUrl = data.actualUrl + '/';
 
-            address = data.liveServerUrl.replace('http', 'ws') + '/ws';
+            // address = data.liveServerUrl.replace('http', 'ws') + '/ws';
         }
-        socket = new WebSocket(address);
+        socket = new WebSocket(`ws://127.0.0.1:${data.liveServerPort}/ws`);
         socket.onmessage = (msg) => {
             reloadWindow(msg, data)
         };
