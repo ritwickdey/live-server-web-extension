@@ -65,6 +65,8 @@
     }
 
     liveServerConnBtn.onclick = () => {
+        liveServerConnBtn.innerText = "Testing...";
+
         const ws = new WebSocket(`ws://127.0.0.1:${liveServerPort.value}/ws`)
         ws.onerror = () =>  {
             liveServerConnBtn.classList.remove('connected');
