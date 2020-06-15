@@ -13,8 +13,6 @@
     function submitForm() {
         var url = decodeURI(actualServerAddress.value);
         var decode = decodeURI(url);
-        console.log(url);
-        console.log(decode);
         const formData = {
             isEnable: liveReloadCheck.checked,
             proxySetup: !noProxyCheckBox.checked,
@@ -23,7 +21,7 @@
         }
         chrome.runtime.sendMessage({
             req: 'set-live-server-config',
-            data: formData,
+            data: formData
         });
     }
 
