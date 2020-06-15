@@ -11,24 +11,27 @@
     const serverSetupDiv = document.getElementById('serverSetup');
 
     function submitForm() {
+        var url = decodeURI(actualServerAddress.value);
+        var decode = decodeURI(url);
+        console.log(url);
+        console.log(decode);
         const formData = {
             isEnable: liveReloadCheck.checked,
             proxySetup: !noProxyCheckBox.checked,
-            actualUrl: actualServerAddress.value || '',
+            actualUrl: encodeURI(url) || '',
             liveServerUrl: liveServerAddress.value || ''
         }
-
         chrome.runtime.sendMessage({
             req: 'set-live-server-config',
-            data: formData
+            data: formData,
         });
     }
 
     liveReloadCheck.onclick = () => {
         submitForm();
     }
-    noProxyCheckBox.onchange = () => {
-        submitForm();
+     noProxyCheckBox.onchange = () => {
+         submitForm();
     }
 
     noProxyCheckBox.onclick = () => {
