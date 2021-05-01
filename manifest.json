@@ -32,7 +32,6 @@
         "default_title": "Live Server"
     },
     "permissions": [
-        "tabs",
         "http://*/*",
         "https://*/*"
     ]
