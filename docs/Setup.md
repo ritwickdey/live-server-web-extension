@@ -19,11 +19,20 @@ In other words. If you just want the reload feature when working with .html file
 3. Install the browser add-on; [Chrome](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/).
 4. Install and run a server on your machine: [Servers and Frameworks](#servers-and-frameworks)
 5. Place your app on the server you want to use and open your project there.
-6. Enter the neccesary fields (screenshot below)
+6. Set VS Code to use web extension (see code below)
+7. Enter the neccesary fields (screenshot below)
     1. **Actual Server Address:** is the address where your server is located and the port.
     2. **Live Server Address:** is the address where your VS code extension is running.
-7. Push the `Go Live`-button in your editor's statusbar.
-8. Visit the `Actual Server Address`
+9. Push the `Go Live`-button in your editor's statusbar.
+10. Visit the `Actual Server Address`
+
+`.vscode/settings.json`
+```js
+{
+    // Mainly for static files
+    "liveServer.settings.useWebExt": true,
+}
+ ```
 
 ![two-step-image](./../img/screenshots/direct-setup.png)
 
