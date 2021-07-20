@@ -10,7 +10,7 @@
 
     const serverSetupDiv = document.getElementById('serverSetup');
 
-    function submitForm() {
+    const submitForm = () => {
         const formData = {
             isEnable: liveReloadCheck.checked,
             proxySetup: !noProxyCheckBox.checked,

@@ -4,7 +4,7 @@
 
     const SETUP_STRING = 'live-reload-extension-new-setup-v2';
 
-    function sendMsgToAllContainPage(req, data) {
+    const sendMsgToAllContainPage = (req, data) => {
         chrome.tabs.query({}, tabs => {
             tabs.forEach(tab => {
                 chrome.tabs.sendMessage(tab.id, {
@@ -15,11 +15,11 @@
         });
     }
 
-    function storeConfigToLocalStorage(data) {
+    const storeConfigToLocalStorage = (data) => {
         localStorage.setItem(SETUP_STRING, JSON.stringify(data || {}));
     }
 
-    function getConfigFromLocalStorage(data) {
+    const getConfigFromLocalStorage = (data) => {
         const val = localStorage.getItem(SETUP_STRING);
         return JSON.parse(val) || {};
     }

@@ -7,7 +7,7 @@
     let socket;
     let isActive = false;
 
-    function init(data) {
+    const init = (data) => {
         if (!data.proxySetup) {
             //Correction
             if (data.liveServerUrl.indexOf('http') !== 0)
@@ -21,31 +21,41 @@
         }
         socket = new WebSocket(address);
         socket.onmessage = (msg) => {
-            reloadWindow(msg, data)
+            socketMessageHandler(msg)
         };
     }
 
-    function reloadWindow(msg, data) {
-        if (!isActive) return;
-        const currentUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-        if (msg.data == 'reload' || msg.data == 'refreshcss') {
-            if (data.proxySetup === true || (data.proxySetup === false && currentUrl.startsWith(data.actualUrl))) {
-                window.location.reload();
-            }
-        }
-
+    const socketMessageHandler = (msg) => {
+        if (msg.data == 'reload') reloadWindow();
+        else if (msg.data == 'refreshcss') refreshCSS();
         logMsgForASingleTime();
-    };
+    }
 
-    function logMsgForASingleTime() {
+    const reloadWindow = () => {
+        window.location.reload();
+    }
+
+    const refreshCSS = () => {
+        const cacheTime = new Date().getTime();
+        const Stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+        const Parent = document.querySelector('head');
+        Stylesheets.forEach(element => {
+            let url = new URL(element.href);
+            url.searchParams.set('cacheOverride', cacheTime);
+            element.href = url;
+            let TempElement = element;
+            Parent.removeChild(element);
+            Parent.appendChild(TempElement);
+        });
+    }
+
+    const logMsgForASingleTime = () => {
         const key = 'oneTimeLog-live-server-web-extesion';
         if (!sessionStorage.getItem(key)) {
             console.log("Live reload Actived - Live Server Web Extension");
             sessionStorage.setItem(key, 1);
         }
-
     }
-
 
     chrome.runtime.onMessage.addListener((msg) => {
         if (typeof msg !== 'object') return;
