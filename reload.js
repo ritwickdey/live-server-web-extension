@@ -1,7 +1,7 @@
 ; (function () {
 
     'use strict';
-
+    const currentUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
     const protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
     let address = protocol + window.location.host + window.location.pathname + '/ws';
     let socket;
@@ -21,14 +21,23 @@
         }
         socket = new WebSocket(address);
         socket.onmessage = (msg) => {
-            socketMessageHandler(msg)
+            socketMessageHandler(msg, data)
         };
     }
 
-    const socketMessageHandler = (msg) => {
-        if (msg.data == 'reload') reloadWindow();
-        else if (msg.data == 'refreshcss') refreshCSS();
+    const socketMessageHandler = (msg, data) => {
+        if (!isActive) return;
+        if (msg.data == 'reload' && checkActive(data)) {
+            reloadWindow();
+        } else if (msg.data == 'refreshcss' && checkActive(data)) {
+            refreshCSS();
+        }
         logMsgForASingleTime();
+    }
+
+    const checkActive = (data) => {
+        if (data.proxySetup === true || (data.proxySetup === false && currentUrl.startsWith(data.actualUrl))) return true;
+        else return false;
     }
 
     const reloadWindow = () => {
@@ -36,16 +45,16 @@
     }
 
     const refreshCSS = () => {
-        const cacheTime = new Date().getTime();
-        const Stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-        const Parent = document.querySelector('head');
-        Stylesheets.forEach(element => {
+        const cachetime = new Date().getTime();
+        const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+        const parent = document.querySelector('head');
+        stylesheets.forEach(element => {
             let url = new URL(element.href);
-            url.searchParams.set('cacheOverride', cacheTime);
+            url.searchParams.set('cacheOverride', cachetime);
             element.href = url;
-            let TempElement = element;
-            Parent.removeChild(element);
-            Parent.appendChild(TempElement);
+            let tempElement = element;
+            parent.removeChild(element);
+            parent.appendChild(tempElement);
         });
     }
 
