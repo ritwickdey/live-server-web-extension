@@ -31,22 +31,23 @@
         <div class="row">
             <div>
                 <input type="checkbox" id="noProxyCheckBox">
-                <label for="noProxyCheckBox">I don't want proxy setup (recommended)</label>
+                <label for="noProxyCheckBox">No complicated Proxy Setup (recommended)</label>
             </div>
         </div>
 
         <div id="serverSetup">
             <div class="row">
                 <div>
-                    <label class="form-label" for="actualServer">Actual Server Address</label>
+                    <label class="form-label" for="actualServer">Original Server Address</label>
                     <input class="form-control" type="text" id="actualServer" placeholder="http://Your Server Address">
                 </div>
             </div>
 
             <div class="row">
                 <div>
-                    <label class="form-label" for="liveServer">Live Server Address</label>
-                    <input class="form-control" type="text" id="liveServer" placeholder="Eg. http://127.0.0.1:5500/">
+                    <label class="form-label" for="liveServerPort">Live Server Port</label>
+                    <input class="form-control" type="number" id="liveServerPort" value="5500">
+                    <button type="button" class="btn" id="liveServerConnBtn">Test Connection</button>
                     <a class="short-right-label" target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Install Live Server</a>
                 </div>
             </div>
@@ -57,8 +58,9 @@
     </div>
     <div class="footer">
         <a target="_blank" href="https://github.com/ritwickdey/live-server-web-extension">Need Help?</a>
-        <p>NOTE: You need two server. Live Server will give `live` power of your existing server (May be Wamp, XAMPP, IIS
-            or Node.js)</p>
+        <p>NOTE: You need two server. Live Server will give `live` power of your existing server (May be Wamp, XAMPP, IIS or
+            Node.js)
+        </p>
     </div>
     <script src="./popup.js"></script>
 </body>

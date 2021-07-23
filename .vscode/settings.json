@@ -6,6 +6,7 @@
         "files.trimTrailingWhitespace": false,
         "editor.minimap.enabled": false
     },
+    "liveServer.settings.multiRootWorkspaceName": "live-server-web-extension",
     // "liveServer.settings.proxy": {
     //     "enable": true,
     //     "baseUri": "/",
