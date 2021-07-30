@@ -1,8 +1,6 @@
 @import "button.css";
-
-
-*, 
-*::after, 
+*,
+*::after,
 *::before {
     box-sizing: border-box;
     font-size: 15px;
@@ -26,7 +24,7 @@ body {
     background-color: #d5d5d5;
 }
 
-.header > p {
+.header>p {
     font-size: 12px;
     font-style: italic;
     font-weight: 400;
@@ -40,10 +38,10 @@ body {
     letter-spacing: 0.9px;
     background-color: #d5d5d5;
     display: block;
-    padding: 5px ;
+    padding: 5px;
 }
 
-.footer > p {
+.footer>p {
     font-size: 10px;
     padding: 10px;
 }
@@ -78,10 +76,14 @@ body {
 .hide {
     display: none;
 }
-input:focus, button:focus {
+
+input:focus,
+button:focus {
     outline: none;
 }
-label[for="proxyCheckBox"], input[type="checkbox"] {
+
+label[for="proxyCheckBox"],
+input[type="checkbox"] {
     cursor: pointer;
 }
 
@@ -95,6 +97,11 @@ label[for="proxyCheckBox"], input[type="checkbox"] {
     cursor: pointer;
     user-select: none;
     border: 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(0.8);
 }
 
 .btn-highlight {
@@ -111,4 +118,26 @@ label[for="proxyCheckBox"], input[type="checkbox"] {
     font-size: 10px;
     float: right;
     margin-right: 6px;
+}
+
+#liveServerPort {
+    width: 65%;
+}
+
+#liveServerConnBtn {
+    display: inline-block;
+    width: 34%;
+    vertical-align: bottom;
+    font-size: 12px;
+    margin-right: -5px;
+}
+
+#liveServerConnBtn.connected {
+    background: green;
+    color: #fff
+}
+
+#liveServerConnBtn.not-connected {
+    background: red;
+    color: #fff
 }

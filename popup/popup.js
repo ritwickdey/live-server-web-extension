@@ -5,8 +5,9 @@
     const liveReloadCheck = document.getElementById('liveReloadCheck');
     const noProxyCheckBox = document.getElementById('noProxyCheckBox');
     const actualServerAddress = document.getElementById('actualServer');
-    const liveServerAddress = document.getElementById('liveServer');
+    const liveServerPort = document.getElementById('liveServerPort');
     const submitBtn = document.getElementById('submitBtn');
+    const liveServerConnBtn = document.getElementById('liveServerConnBtn');
 
     const serverSetupDiv = document.getElementById('serverSetup');
 
@@ -15,7 +16,8 @@
             isEnable: liveReloadCheck.checked,
             proxySetup: !noProxyCheckBox.checked,
             actualUrl: actualServerAddress.value || '',
-            liveServerUrl: liveServerAddress.value || ''
+            // liveServerUrl: `http://127.0.0.1:${liveServerPort.value}`,
+            liveServerPort: liveServerPort.value
         }
 
         chrome.runtime.sendMessage({
@@ -43,7 +45,7 @@
             liveReloadCheck.checked = data.isEnable || false;
             noProxyCheckBox.checked = !data.proxySetup;
             actualServerAddress.value = data.actualUrl || '';
-            liveServerAddress.value = data.liveServerUrl || '';
+            liveServerPort.value = data.liveServerPort || 5500;
             serverSetupDiv.className =  noProxyCheckBox.checked ? 'show' : 'hide';
         });
     });
@@ -54,10 +56,32 @@
         submitBtn.disabled = true;
     }
 
-    liveServerAddress.onkeyup = actualServerAddress.onkeyup = () => {
+    liveServerPort.onkeyup = actualServerAddress.onkeyup = () => {
         submitBtn.disabled = false;
         submitBtn.classList.add('btn-highlight');
+        liveServerConnBtn.innerText = 'Test Connection';
+        liveServerConnBtn.classList.remove('connected');
+        liveServerConnBtn.classList.remove('not-connected');
     }
+
+    liveServerConnBtn.onclick = () => {
+        liveServerConnBtn.innerText = "Testing...";
+
+        const ws = new WebSocket(`ws://127.0.0.1:${liveServerPort.value}/ws`)
+        ws.onerror = () =>  {
+            liveServerConnBtn.classList.remove('connected');
+            liveServerConnBtn.classList.add('not-connected');
+            liveServerConnBtn.innerText = "Not Connected"
+            console.log('not connected');
+        }
+        ws.onmessage = () =>  {
+            liveServerConnBtn.classList.add('connected');
+            liveServerConnBtn.classList.remove('not-connected');
+            liveServerConnBtn.innerText = "Connected"
+            console.log('connected');
+            ws.close();
+        }
+    };
 
 
 })();
