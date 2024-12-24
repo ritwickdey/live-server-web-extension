@@ -16,17 +16,15 @@
     }
 
     function storeConfigToLocalStorage(data) {
-        if (typeof window !== 'undefined') {
-            window.localStorage.setItem(SETUP_STRING, JSON.stringify(data || {}));
-        }
+        chrome.storage.local.set({ [SETUP_STRING]: data || {} });
     }
-
+    
     function getConfigFromLocalStorage() {
-        if (typeof window !== 'undefined') {
-            const val = window.localStorage.getItem(SETUP_STRING);
-            return JSON.parse(val) || {};
-        }
-        return null;
+        return new Promise((resolve) => {
+            chrome.storage.local.get([SETUP_STRING], (result) => {
+                resolve(result[SETUP_STRING] || {});
+            });
+        });
     }
 
     chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {

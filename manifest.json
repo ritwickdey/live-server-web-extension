@@ -30,6 +30,9 @@
         "default_icon": "./img/icon.png",
         "default_title": "Live Server"
     },
+    "permissions": [
+        "storage"
+    ],
     "host_permissions": [
         "http://*/*",
         "https://*/*"
