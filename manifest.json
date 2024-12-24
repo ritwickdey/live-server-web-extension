@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Live Server Web Extension",
     "version": "1.4.0",
     "description": " Makes your existing server live. This is a browser extension that helps you to live reload feature for dynamic pages",
@@ -22,16 +22,15 @@
         }
     ],
     "background": {
-        "scripts": [
-            "background.js"
-        ]
+        "service_worker": "background.js",
+        "type": "module"
     },
-    "browser_action": {
+    "action": {
         "default_popup": "./popup/popup.html",
         "default_icon": "./img/icon.png",
         "default_title": "Live Server"
     },
-    "permissions": [
+    "host_permissions": [
         "http://*/*",
         "https://*/*"
     ]
