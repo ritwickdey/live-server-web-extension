@@ -19,7 +19,7 @@
         localStorage.setItem(SETUP_STRING, JSON.stringify(data || {}));
     }
 
-    function getConfigFromLocalStorage(data) {
+    function getConfigFromLocalStorage() {
         const val = localStorage.getItem(SETUP_STRING);
         return JSON.parse(val) || {};
     }
