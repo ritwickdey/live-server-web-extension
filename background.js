@@ -16,12 +16,17 @@
     }
 
     function storeConfigToLocalStorage(data) {
-        localStorage.setItem(SETUP_STRING, JSON.stringify(data || {}));
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem(SETUP_STRING, JSON.stringify(data || {}));
+        }
     }
 
     function getConfigFromLocalStorage() {
-        const val = localStorage.getItem(SETUP_STRING);
-        return JSON.parse(val) || {};
+        if (typeof window !== 'undefined') {
+            const val = window.localStorage.getItem(SETUP_STRING);
+            return JSON.parse(val) || {};
+        }
+        return null;
     }
 
     chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
@@ -33,7 +38,9 @@
         }
         else if (msg.req === 'get-live-server-config') {
             const data = getConfigFromLocalStorage();
-            sendResponse(data);
+            if(data){
+                sendResponse(data);
+            }
         }
 
     });
