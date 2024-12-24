@@ -42,12 +42,13 @@
             chrome.runtime.sendMessage({
                 req: 'get-live-server-config'
             }, (data) => {
-                console.log('popupwidnow')
-                liveReloadCheck.checked = data.isEnable || false;
-                noProxyCheckBox.checked = !data.proxySetup;
-                actualServerAddress.value = data.actualUrl || '';
-                liveServerAddress.value = data.liveServerUrl || '';
-                serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
+                if (data) {
+                    liveReloadCheck.checked = data.isEnable || false;
+                    noProxyCheckBox.checked = !data.proxySetup;
+                    actualServerAddress.value = data.actualUrl || '';
+                    liveServerAddress.value = data.liveServerUrl || '';
+                    serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
+                }
             });
         }
     });
