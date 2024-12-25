@@ -40,7 +40,7 @@
                 function (error) { console.error(`Error: ${error}`) }
             );
         }
-
+        return true; //Keep the callback(sendResponse) active
     });
 
 })();
