@@ -38,19 +38,17 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        if (chrome && chrome.runtime) {
-            chrome.runtime.sendMessage({
-                req: 'get-live-server-config'
-            }, (data) => {
-                if (data) {
-                    liveReloadCheck.checked = data.isEnable || false;
-                    noProxyCheckBox.checked = !data.proxySetup;
-                    actualServerAddress.value = data.actualUrl || '';
-                    liveServerAddress.value = data.liveServerUrl || '';
-                    serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
-                }
-            });
-        }
+        chrome.runtime.sendMessage({
+            req: 'get-live-server-config'
+        }, (data) => {
+            if (data) {
+                liveReloadCheck.checked = data.isEnable || false;
+                noProxyCheckBox.checked = !data.proxySetup;
+                actualServerAddress.value = data.actualUrl || '';
+                liveServerAddress.value = data.liveServerUrl || '';
+                serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
+            }
+        });
     });
 
     submitBtn.onclick = () => {
