@@ -16,12 +16,15 @@
     }
 
     function storeConfigToLocalStorage(data) {
-        localStorage.setItem(SETUP_STRING, JSON.stringify(data || {}));
+        chrome.storage.local.set({ [SETUP_STRING]: data || {} });
     }
-
-    function getConfigFromLocalStorage(data) {
-        const val = localStorage.getItem(SETUP_STRING);
-        return JSON.parse(val) || {};
+    
+    function getConfigFromLocalStorage() {
+        return new Promise((resolve) => {
+            chrome.storage.local.get([SETUP_STRING], (result) => {
+                resolve(result[SETUP_STRING] || {});
+            });
+        });
     }
 
     chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
@@ -32,10 +35,12 @@
             sendMsgToAllContainPage('live-server-config-updated', msg.data);
         }
         else if (msg.req === 'get-live-server-config') {
-            const data = getConfigFromLocalStorage();
-            sendResponse(data);
+            getConfigFromLocalStorage().then(
+                function (value) { sendResponse(value) },
+                function (error) { console.error(`Error: ${error}`) }
+            );
         }
-
+        return true; //Keep the callback(sendResponse) active
     });
 
 })();
