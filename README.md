@@ -1,5 +1,3 @@
-_[I'm sorry but I'm now super busy, If you want to be a maintainer of the project please feel me to contact me! You've to be passionate about programming]_
-
 # Live Server - Web Extension
 Makes your existing server live
 
@@ -10,6 +8,11 @@ Makes your existing server live
 This browser add-on is an extension for a developer tool in VS Code editor ([Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)). With this add-on installed, along with the VS Code extension, it gives you a functionality to automatically update your website on save; for other files than just `.htm` and `.html`.
 
 So specifically, with this add-on, live reload will also work with the following server-side files within the spectrum of: `PHP`, `.NET` and `NodeJS`.
+
+<br><hr>
+
+### Privacy Policy
+This extension does not collect or store any user data. As simple as it is! :)
 
 <br><hr>
 
