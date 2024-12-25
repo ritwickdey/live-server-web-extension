@@ -18,12 +18,11 @@
             liveServerUrl: liveServerAddress.value || ''
         }
 
-        if (chrome && chrome.runtime) {
-            chrome.runtime.sendMessage({
-                req: 'set-live-server-config',
-                data: formData
-            });
-        }
+        chrome.runtime.sendMessage({
+            req: 'set-live-server-config',
+            data: formData
+        });
+
     }
 
     liveReloadCheck.onclick = () => {
@@ -41,13 +40,12 @@
         chrome.runtime.sendMessage({
             req: 'get-live-server-config'
         }, (data) => {
-            if (data) {
-                liveReloadCheck.checked = data.isEnable || false;
-                noProxyCheckBox.checked = !data.proxySetup;
-                actualServerAddress.value = data.actualUrl || '';
-                liveServerAddress.value = data.liveServerUrl || '';
-                serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
-            }
+            if (!data) return
+            liveReloadCheck.checked = data.isEnable || false;
+            noProxyCheckBox.checked = !data.proxySetup;
+            actualServerAddress.value = data.actualUrl || '';
+            liveServerAddress.value = data.liveServerUrl || '';
+            serverSetupDiv.className = noProxyCheckBox.checked ? 'show' : 'hide';
         });
     });
 
@@ -61,6 +59,5 @@
         submitBtn.disabled = false;
         submitBtn.classList.add('btn-highlight');
     }
-
 
 })();

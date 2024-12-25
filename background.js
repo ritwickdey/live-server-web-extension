@@ -16,7 +16,8 @@
     }
 
     function storeConfigToLocalStorage(data) {
-        chrome.storage.local.set({ [SETUP_STRING]: data || {} });
+        // return promise
+        return chrome.storage.local.set({ [SETUP_STRING]: data || {} })
     }
     
     function getConfigFromLocalStorage() {
@@ -35,10 +36,14 @@
             sendMsgToAllContainPage('live-server-config-updated', msg.data);
         }
         else if (msg.req === 'get-live-server-config') {
-            getConfigFromLocalStorage().then(
-                function (value) { sendResponse(value) },
-                function (error) { console.error(`Error: ${error}`) }
-            );
+            getConfigFromLocalStorage()
+                .then(function (value) { 
+                    sendResponse(value) 
+                })
+                .catch(function (error) { 
+                    console.error("Error in get-live-server-config:",error);
+                    sendResponse({}) 
+                });
         }
         return true; //Keep the callback(sendResponse) active
     });
