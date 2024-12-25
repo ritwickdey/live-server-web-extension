@@ -3,7 +3,7 @@ _[I'm sorry but I'm now super busy, If you want to be a maintainer of the projec
 # Live Server - Web Extension
 Makes your existing server live
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/)[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/)[![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/reviews)  
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj)[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj)[![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/fiegdmejfepffgpnejdinekhfieaogmj.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/reviews)  
 [![Mozilla Add-on](https://img.shields.io/amo/v/live-server-web-extension.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/)[![Mozilla Add-on](https://img.shields.io/amo/users/live-server-web-extension.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/)[![Mozilla Add-on](https://img.shields.io/amo/rating/live-server-web-extension.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/reviews/)  
 
 ### Brief Description
@@ -27,7 +27,7 @@ Neither the browser add-on nor the VS Code extension will host a server for: `PH
 
 ### Store Links
 
-* Chrome : https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj/
+* Chrome : https://chrome.google.com/webstore/detail/live-server-web-extension/fiegdmejfepffgpnejdinekhfieaogmj
 * Firefox : https://addons.mozilla.org/en-US/firefox/addon/live-server-web-extension/ 
 
 <br><hr>
