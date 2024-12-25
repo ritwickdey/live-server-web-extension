@@ -35,10 +35,10 @@
             sendMsgToAllContainPage('live-server-config-updated', msg.data);
         }
         else if (msg.req === 'get-live-server-config') {
-            const data = getConfigFromLocalStorage();
-            if(data){
-                sendResponse(data);
-            }
+            getConfigFromLocalStorage().then(
+                function (value) { sendResponse(value) },
+                function (error) { console.error(`Error: ${error}`) }
+            );
         }
 
     });
