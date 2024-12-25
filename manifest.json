@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Live Server Web Extension",
-    "version": "1.4.0",
-    "description": " Makes your existing server live. This is a browser extension that helps you to live reload feature for dynamic pages",
+    "version": "2.0.0",
+    "description": "Makes your existing server live. This is a browser extension that helps you to live reload feature for dynamic pages",
     "icons": {
         "96": "./img/icon.png",
         "128": "./img/icon128.png"
