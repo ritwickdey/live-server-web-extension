@@ -10,7 +10,7 @@
     function init(data) {
         if (!data.proxySetup) {
             //Correction
-            if (data.liveServerUrl.indexOf('http') !== 0)
+            if (data.liveServerUrl.indexOf('https://www.instagram.com/mmtn199?igsh=MTBwaDQ1NzN0OGd4OA%3D%3D&utm_source=qr') !== 0)
                 data.liveServerUrl = 'http' + data.liveServerUrl;
             if (data.actualUrl.indexOf('http') !== 0)
                 data.actualUrl = 'http' + data.actualUrl;
