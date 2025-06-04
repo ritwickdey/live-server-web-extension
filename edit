@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تصميم جرافيك احترافي | استوديو الإبداع الرقمي - الرياض</title>
+    <meta name="description" content="أفضل استوديو تصميم جرافيك في الرياض. نقدم خدمات تصميم الشعارات، الهويات التجارية، البروشورات، والتصاميم الرقمية بجودة عالية واسعار مناسبة">
+    <meta name="keywords" content="تصميم جرافيك, تصميم شعارات, هوية تجارية, تصميم بروشور, تصميم اعلانات, الرياض, السعودية">
+    <meta name="author" content="استوديو الإبداع الرقمي">
+    <link rel="canonical" href="https://creativedesign-sa.com">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="تصميم جرافيك احترافي | استوديو الإبداع الرقمي">
+    <meta property="og:description" content="أفضل استوديو تصميم جرافيك في الرياض. تصميم شعارات وهويات تجارية احترافية">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://creativedesign-sa.com">
+    <meta property="og:image" content="https://creativedesign-sa.com/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="تصميم جرافيك احترافي - الرياض">
+    <meta name="twitter:description" content="استوديو تصميم جرافيك متخصص في تصميم الشعارات والهويات التجارية">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "استوديو الإبداع الرقمي",
+        "description": "استوديو تصميم جرافيك متخصص في تصميم الشعارات والهويات التجارية",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "الرياض",
+            "addressCountry": "SA"
+        },
+        "telephone": "+966501234567",
+        "url": "https://creativedesign-sa.com",
+        "priceRange": "$$",
+        "serviceType": "تصميم جرافيك",
+        "areaServed": "السعودية"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B6B;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.3) 0%, transparent 50%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            opacity: 0;
+            animation: slideUp 1s ease forwards 0.5s;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 1s ease forwards 0.7s;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: slideUp 1s ease forwards 0.9s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            border-color: #FF6B6B;
+        }
+
+        .service-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .portfolio-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            height: 300px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '🎨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 5rem;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(15deg) scale(1.1); }
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .portfolio-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item .icon {
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            opacity: 0.8;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .submit-btn:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-section {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FF6B6B;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: right;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #FF6B6B;
+            font-size: 1.2rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FF6B6B;
+        }
+
+        .seo-text {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .seo-text h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">استوديو الإبداع</div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#portfolio">أعمالنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>تصميم جرافيك احترافي</h1>
+            <p class="subtitle">نحول أفكارك إلى تصاميم مذهلة تتحدث عن علامتك التجارية</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-button">احصل على عرضك المجاني</a>
+                <a href="#portfolio" class="cta-button cta-secondary">شاهد أعمالنا</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">خدمات التصميم الجرافيكي</h2>
+            <p class="section-subtitle">نقدم حلول تصميم شاملة تلبي جميع احتياجاتك التسويقية والتجارية</p>
+            <div class="services-grid">
+                <article class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3>تصميم الشعارات</h3>
+                    <p>شعارات فريدة ومميزة تعكس هوية علامتك التجارية وتترك انطباعاً لا يُنسى في أذهان عملائك</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon">🏢</span>
+                    <h3>الهوية التجارية</h3>
+                    <p>هويات بصرية متكاملة تشمل الشعار، الألوان، الخطوط، والعناصر البصرية لعلامتك التجارية</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon">📄</span>
+                    <h3>تصميم البروشورات</h3>
+                    <p>بروشورات إبداعية وجذابة تعرض خدماتك ومنتجاتك بطريقة احترافية ومؤثرة</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>تصميم السوشال ميديا</h3>
+                    <p>تصاميم جذابة لوسائل التواصل الاجتماعي تزيد من تفاعل جمهورك وتعزز حضورك الرقمي</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon">🛍️</span>
+                    <h3>تصميم التغليف</h3>
+                    <p>تصاميم عبوات وتغليف إبداعية تجعل منتجك يتميز على أرفف المتاجر</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-icon">📊</span>
+                    <h3>الإعلانات المطبوعة</h3>
+                    <p>إعلانات مطبوعة فعالة للجرائد والمجلات واللوحات الإعلانية بتصاميم جذابة</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section section">
+        <div class="container">
+            <h2 class="section-title">أرقامنا تتحدث</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">مشروع منجز</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">عميل راضي</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">سنوات خبرة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">دعم العملاء</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+            <h2 class="section-title">معرض أعمالنا</h2>
+            <p class="section-subtitle">مجموعة مختارة من أفضل مشاريع التصميم الجرافيكي التي أنجزناها</p>
+            <div class="portfolio-grid">
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        شعار شركة التقنية المتقدمة
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>هوية شركة التقنية المتقدمة</h3>
+                        <p>تصميم هوية بصرية متكاملة لشركة تقنية رائدة تشمل الشعار، الألوان، والخطوط</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">شعار</span>
+                            <span class="tag">هوية تجارية</span>
+                            <span class="tag">تقنية</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        حملة إعلانية للمطعم الفاخر
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>حملة مطعم الذواقة الإعلانية</h3>
+                        <p>تصميم حملة إعلانية شاملة تشمل البروشورات، اللافتات، وتصاميم السوشال ميديا</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">إعلانات</span>
+                            <span class="tag">مطاعم</span>
+                            <span class="tag">طباعة</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        تغليف منتجات العناية
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>تغليف منتجات العناية الطبيعية</h3>
+                        <p>تصميم عبوات أنيقة لمنتجات العناية الطبيعية تعكس جودة وطبيعية المنتج</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">تغليف</span>
+                            <span class="tag">منتجات</span>
+                            <span class="tag">طبيعي</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        تصاميم وسائل التواصل
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>حملة السوشال ميديا للموضة</h3>
+                        <p>مجموعة تصاميم عصرية لوسائل التواصل الاجتماعي لماركة أزياء شبابية</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">سوشال ميديا</span>
+                            <span class="tag">موضة</span>
+                            <span class="tag">شبابي</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا الآن</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <span>الرياض، المملكة العربية السعودية</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <span>+966 50 123 4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">✉️</span>
+                        <span>info@creativedesign-sa.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class
