@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inox Carhua - Tienda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            scroll-behavior: smooth; /* Añadido para navegación suave */
+        }
+        /* Oculta todas las "páginas" por defecto */
+        .page {
+            display: none;
+        }
+        /* Muestra solo la página "activa" */
+        .page.active {
+            display: block;
+        }
+        /* ===== ESTILO PARA EL SCROLL HORIZONTAL AÑADIDO ===== */
+        .scroll-container::-webkit-scrollbar { 
+            height: 8px; 
+        }
+        .scroll-container::-webkit-scrollbar-thumb { 
+            background-color: #fdba74; /* Naranja claro */
+            border-radius: 4px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb:hover { 
+            background-color: #f97316; /* Naranja oscuro */
+        }
+
+        /* ===== ESTILOS PARA LA NUEVA PÁGINA DE ACCESORIOS ===== */
+        /* Estilo para las tarjetas de categoría grandes (como "Para ella") */
+        .acc-category-lg {
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: white;
+            transition: transform 0.2s;
+        }
+        .acc-category-lg:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Estilo para las tarjetas de categoría pequeñas (circulares) */
+        .acc-category-sm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .acc-category-sm:hover {
+            opacity: 0.8;
+        }
+        .acc-category-sm .img-circle {
+            width: 144px; /* w-36 */
+            height: 144px; /* h-36 */
+            border-radius: 9999px; /* rounded-full */
+            object-fit: cover;
+            background-color: #e5e7eb; /* bg-gray-200 */
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .acc-category-sm h4 {
+            margin-top: 0.75rem; /* mt-3 */
+            font-weight: 600; /* font-semibold */
+            color: #374151; /* text-gray-700 */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- ===== BARRA SUPERIOR (CABECERA DEL SITIO WEB) ===== -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto max-w-7xl px-4 py-4">
+            <div class="flex justify-between items-center space-x-8">
+                <!-- Enlace "Home" - te lleva a la página principal -->
+                <a href="#" onclick="navigateTo('page-main')" class="text-3xl font-bold text-orange-600">INOX CARHUA</a>
+                
+              
+                </div>
+                
+                
+                 
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== BARRA DE NAVEGACIÓN (ACTUALIZADA) ===== -->
+        <nav class="bg-gray-800 text-white">
+            <div class="container mx-auto max-w-7xl px-4">
+                <div class="flex justify-center space-x-10">
+                    <!-- Enlace de navegación principal -->
+                    <a href="#" onclick="navigateTo('page-main')" class="py-3 text-sm font-semibold uppercase tracking-wide text-gray-300 hover:text-white" id="nav-productos">Productos ▾</a>
+                    
+                    <!-- ACCESORIOS AÑADIDO AL LADO -->
+                    <a href="#" onclick="navigateTo('page-accesorios')" class="py-3 text-sm font-semibold uppercase tracking-wide text-gray-300 hover:text-white" id="nav-accesorios">Accesorios</a>
+                    
+                    <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="py-3 text-sm font-semibold uppercase tracking-wide text-gray-300 hover:text-white" id="nav-mesas-trabajo">Mesas de Trabajo</a>
+                    <a href="#" onclick="navigateTo('page-lavaderos')" class="py-3 text-sm font-semibold uppercase tracking-wide text-gray-300 hover:text-white" id="nav-lavaderos">Línea Lavado</a>
+ <!-- PROYECTOS A MEDIDA (ACTUALIZADO) -->
+                    <a href="#" onclick="navigateTo('page-proyectos')" class="py-3 text-sm font-semibold uppercase tracking-wide text-gray-300 hover:text-white" id="nav-proyectos">Proyectos</a>                    <a href="#" onclick="navigateTo('page-contacto')" class="py-3 text-sm font-semibold uppercase tracking-wide text-gray-300 hover:text-white" id="nav-contacto">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== CONTENEDOR PRINCIPAL DE PÁGINAS ===== -->
+    <main class="container mx-auto max-w-7xl px-4 py-12">
+
+        
+        <!-- ===== PÁGINA 1: PRODUCTO PRINCIPAL (COCINA A LEÑA) ===== -->
+        <!-- 'active' la hace visible al cargar -->
+        <div id="page-main" class="page active">
+            <!-- Contenido de Cocina a Leña (Principal) -->
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- Galería de Cocina a Leña -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="VISTA DELANTE COCINA A LEÑA.png" alt="Cocina a Leña 3 Hornillas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                        <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-2 gap-2 max-w-md mx-auto">
+                            <img src="VISTA DELANTE COCINA A LEÑA.png" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="VISTA DELANTE COCINA A LEÑA.png" onerror="this.onerror=null; this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">     
+                            <img src="VISTA ATRAS COCINA A LEÑA.png" alt="Miniatura 2" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="VISTA ATRAS COCINA A LEÑA.png" onerror="this.onerror=null; this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">     
+                            <img src="VISTA HORNILLA COCINA A LEÑA.png" alt="Miniatura 3" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="VISTA HORNILLA COCINA A LEÑA.png" onerror="this.onerror=null; this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">     
+                            <img src="VISTA LEÑERO COCINA A LEÑA.png" alt="Miniatura 4" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="VISTA LEÑERO COCINA A LEÑA.png" onerror="this.onerror=null; this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">     
+                        </div>
+                    </div>  
+                    <!-- Detalles de Cocina a Leña -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina a Leña 3 Hornillas (Acero Inox)</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,600.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">
+                            Cocina a leña robusta de 3 hornillas, fabricada 100% en acero inoxidable de alta calidad. Incluye horno, leñero y cenicero.
+                        </p>
+                  <button onclick="openWhatsAppModal('Cocina a Leña 3 Hornillas (Acero Inox)')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>
+                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                    <li>Hornillas: 3</li>
+                                    <li>Incluye: Horno, Leñero, Cenicero</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Cocina (Ancho x Largo): 1.07 m x 63 cm</li>
+                                    <li>Horno: 87 cm x 80 cm</li>
+                                    <li>Leñero: 28 cm x 05 cm</li>
+                                    <li>Cenicero: 28 cm x 8 cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categorías -->
+            <section class="mt-16">
+                <h3 class="text-3xl font-bold text-gray-800 mb-6">Otras Categorías de Productos</h3>
+                
+                <!-- LISTA HORIZONTAL CON SCROLL -->
+                <div class="flex overflow-x-auto space-x-6 pb-4 scroll-container">
+                    
+                    <!-- Tarjeta 1: Hornos -->
+                    <div class="flex-shrink-0 w-80">
+                        <a href="#" onclick="navigateTo('page-hornos')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                            <img src="horno 9 abierto.png" alt="Hornos" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Hornos'">
+                            <div class="p-4">
+                                <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Hornos</h4>
+                                <p class="product-desc text-sm text-gray-600">Industriales y semi-industriales</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Tarjeta 2: Parrilleros -->
+                    <div class="flex-shrink-0 w-80">
+                        <a href="#" onclick="navigateTo('page-parrilleros')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                            <img src="parrilla delantera.jpg" alt="Parrilleros" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Parrilleros'">
+                            <div class="p-4">
+                                <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Parrilleros</h4>
+                                <p class="product-desc text-sm text-gray-600">Con sistema elevadizo y más</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Tarjeta 3: Cocinas Chiferas -->
+                    <div class="flex-shrink-0 w-80">
+                        <a href="#" onclick="navigateTo('page-chiferas')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                            <img src="chifera 3 hornillas.jpg" alt="Cocinas Chiferas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocinas+Chiferas'">
+                            <div class="p-4">
+                                <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocinas Chiferas</h4>
+                                <p class="product-desc text-sm text-gray-600">De 1 o más hornillas</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Tarjeta 4: Cocinas Industriales -->
+                    <div class="flex-shrink-0 w-80">
+                        <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                            <img src="industrial 2300.jpg" alt="Cocinas Industriales" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Industriales'">
+                            <div class="p-4">
+                                <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocinas Industriales</h4>
+                                <p class="product-desc text-sm text-gray-600">Combos y modelos variados</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Tarjeta 5: Mesas de Trabajo -->
+                    <div class="flex-shrink-0 w-80">
+                        <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                            <img src="mesa 4 nivel.jpg" alt="Mesas de Trabajo" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Mesas+de+Trabajo'">
+                            <div class="p-4">
+                                <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Mesas de Trabajo</h4>
+                                <p class="product-desc text-sm text-gray-600">Medida y calidad a gusto del cliente</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Tarjeta 6: Línea Lavado (Lavaderos) -->
+                    <div class="flex-shrink-0 w-80">
+                        <a href="#" onclick="navigateTo('page-lavaderos')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                            <img src="lavadero 2 pozas.jpg" alt="Lavaderos" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Lavaderos'">
+                            <div class="p-4">
+                                <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Línea Lavado</h4>
+                                <p class="product-desc text-sm text-gray-600">De 1 y 2 pozas, porta jarras y más</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- ===== PÁGINA 2: CATEGORÍA - HORNOS ===== -->
+        <!-- ============================================= -->
+        <div id="page-hornos" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Hornos</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Modelo: Horno 9 latas -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-horno-9-latas')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="horno delante 9.png" alt="Horno 9 latas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Horno+9+latas'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Horno de 9 latas</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero Inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.8,300.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Horno 4 latas -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-horno-4-latas')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="horno 4 perfil.png" alt="Horno 4 latas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Horno+4+latas'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Horno de 4 latas</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero Inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.2,800.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================= -->
+        <!-- ===== PÁGINA 3: CATEGORÍA - PARRILLEROS ===== -->
+        <!-- ================================================= -->
+        <div id="page-parrilleros" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Parrilleros</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Modelo: Parrillero 1m -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-parrillero-1m')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="parrilla delantera.jpg" alt="Parrillero 1m" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Parrillero+1m'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Parrillero 1m</h4>
+                            <p class="product-desc text-sm text-gray-600">1m x 55cm</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,400.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Parrillero 80cm -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-parrillero-80cm')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="parrilla delantera.jpg" alt="Parrillero 80cm" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Parrillero+80cm'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Parrillero 80cm</h4>
+                            <p class="product-desc text-sm text-gray-600">80cm x 45cm</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.950.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Parrillero Económico -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-parrillero-economico')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="parrilla negra.jpg" alt="Parrillero Económico" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Parrillero+Económico'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Parrillero Económico</h4>
+                            <p class="product-desc text-sm text-gray-600">60cm x 40cm + Plancha</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.380.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Parrillero con Tapa -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-parrillero-tapa')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="parrilla con tapa delantera.png" alt="Parrillero con Tapa" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Parrillero+con+Tapa'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Parrillero con Tapa</h4>
+                            <p class="product-desc text-sm text-gray-600">1m x 55cm + Grasera</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,750.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- ===== PÁGINA 4: CATEGORÍA - COCINAS CHIFERAS ===== -->
+        <!-- ===================================================== -->
+        <div id="page-chiferas" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Cocinas Chiferas</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Modelo: Cocina Chifera 60x60 -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-chifera')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="chifera solo 1 hornilla.jpg" alt="Cocina Chifera 60x60" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Chifera'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina Chifera 60x60</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero Inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.700.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Cocina Chifera + 2 Hornillas -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-chifera-combo')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="chifera 3 hornillas.jpg" alt="Cocina Chifera + 2 Hornillas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Chifera+Combo'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina Chifera + 2 Hornillas</h4>
+                            <p class="product-desc text-sm text-gray-600">1.60m x 58cm</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,800.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================= -->
+        <!-- ===== PÁGINA 5: DETALLE - HORNO 9 LATAS ===== -->
+        <!-- ================================================= -->
+        <div id="page-horno-9-latas" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-hornos')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Hornos
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="horno delante 9.png" alt="Horno de 9 latas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                        <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                            
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="horno delante 9.png" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="horno delante 9.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <img src="horno 9 abierto.png" alt="Miniatura 2" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="horno 9 abierto.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Horno de 9 latas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.8,300.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Horno industrial de 9 latas.</p>
+<button onclick="openWhatsAppModal('Horno 9 Latas')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>
+                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.08m x 1.65m x 80cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================= -->
+        <!-- ===== PÁGINA 6: DETALLE - HORNO 4 LATAS ===== -->
+        <!-- ================================================= -->
+        <div id="page-horno-4-latas" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-hornos')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Hornos
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="horno 4 perfil.png" alt="Horno de 4 latas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                        <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="horno 4 perfil.png" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="horno 4 perfil.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <img src="horno 4 abierto.png" alt="Miniatura 2" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="horno 4 abierto.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Horno de 4 latas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,800.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Horno industrial de 4 latas.</p>
+<button onclick="openWhatsAppModal('Horno 4 Latas')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 0.96m x 0.36m</li>
+                                    <li>Fondo: 75cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================================================== -->
+        <!-- ===== PÁGINA 7: DETALLE - PARRILLERO 1M ===== -->
+        <!-- =================================================== -->
+        <div id="page-parrillero-1m" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-parrilleros')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Parrilleros
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="parrilla delantera.jpg" alt="Parrillero 1m" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="parrilla delantera.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="parrilla delantera.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Parrillero 1m</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,400.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Parrillero de 1 metro con sistema elevadizo manual.</p>
+<button onclick="openWhatsAppModal('Parrillero 1m')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>
+                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1m x 55cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- ===== PÁGINA 8: DETALLE - PARRILLERO 80CM ===== -->
+        <!-- ===================================================== -->
+        <div id="page-parrillero-80cm" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-parrilleros')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Parrilleros
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="parrilla delantera.jpg" alt="Parrillero 80cm" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="parrilla delantera.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="parrilla delantera.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Parrillero 80cm</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.950.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Parrillero con sistema elevadizo.</p>
+<button onclick="openWhatsAppModal('Parrillero 80cm')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 80cm x 45cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- ===== PÁGINA 9: DETALLE - PARRILLERO ECONÓMICO ===== -->
+        <!-- ======================================================== -->
+        <div id="page-parrillero-economico" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-parrilleros')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Parrilleros
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="parrilla negra.jpg" alt="Parrillero Económico" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="parrilla negra.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="parrilla negra.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Parrillero Económico</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.380.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Parrillero económico con plancha.</p>
+
+<button onclick="openWhatsAppModal('PARRILLERO ECONÓMICO')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Incluye plancha</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 60cm x 40cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================= -->
+        <!-- ===== PÁGINA 10: DETALLE - PARRILLERO CON TAPA ===== -->
+        <!-- ======================================================= -->
+        <div id="page-parrillero-tapa" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-parrilleros')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Parrilleros
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="parrilla con tapa delantera.png" alt="Parrillero con Tapa" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="parrilla con tapa delantera.png" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="parrilla con tapa delantera.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <img src="parrilla con tapa habierta.png" alt="Miniatura 2" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="parrilla con tapa habierta.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Parrillero con Tapa</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,750.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Parrillero con tapa y grasera.</p>
+<button onclick="openWhatsAppModal('PARRILLERO CON TAPA')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                    <li>Incluye: Tapa y Grasera</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1m x 55cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- ===== PÁGINA 11: DETALLE - COCINA CHIFERA 60X60 ===== -->
+        <!-- ======================================================== -->
+        <div id="page-cocina-chifera" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-chiferas')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Cocinas Chiferas
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="chifera solo 1 hornilla.jpg" alt="Cocina Chifera 60x60" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="chifera solo 1 hornilla.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="chifera solo 1 hornilla.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina Chifera 60x60</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.700.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Cocina chifera de 1 hornilla.</p>
+<button onclick="openWhatsAppModal('COCINA CHIFERA 60X60')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 60cm x 60cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================= -->
+        <!-- ===== PÁGINA 12: DETALLE - COCINA CHIFERA COMBO ===== -->
+        <!-- ======================================================= -->
+        <div id="page-cocina-chifera-combo" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-chiferas')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Cocinas Chiferas
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="chifera 3 hornillas.jpg" alt="Cocina Chifera + 2 Hornillas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="chifera 3 hornillas.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="chifera 3 hornillas.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina Chifera + 2 Hornillas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,800.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Cocina chifera de 1 hornilla más 2 hornillas adicionales.</p>
+<button onclick="openWhatsAppModal('COCINA CHIFERA COMBO')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.60m x 58cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================================================================== -->
+        <!-- ===== SECCIÓN DE PÁGINAS NUEVAS (AÑADIDAS DEL CATÁLOGO) ===== -->
+        <!-- ================================================================== -->
+
+        <!-- ===================================================== -->
+        <!-- ===== PÁGINA 13: CATEGORÍA - MESAS DE TRABAJO ===== -->
+        <!-- ===================================================== -->
+        <div id="page-mesas-trabajo" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Mesas de Trabajo</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Modelo: Mesa 1 Nivel -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-mesa-1-nivel')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="mesa 1 nivel.jpg" alt="Mesa de 1 Nivel" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Mesa+1+Nivel'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Mesa de Trabajo (1 Nivel)</h4>
+                            <p class="product-desc text-sm text-gray-600">Medida y calidad a gusto del cliente</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">Precio a Consultar</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Mesa 2 Niveles -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-mesa-2-niveles')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="mesa 2 nivel.jpg" alt="Mesa de 2 Niveles" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Mesa+2+Niveles'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Mesa de Trabajo (2 Niveles)</h4>
+                            <p class="product-desc text-sm text-gray-600">Medida y calidad a gusto del cliente</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">Precio a Consultar</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Mesa 3 Niveles -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-mesa-3-niveles')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="mesa 3 nivel.jpg" alt="Mesa de 3 Niveles" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Mesa+3+Niveles'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Mesa de Trabajo (3 Niveles)</h4>
+                            <p class="product-desc text-sm text-gray-600">Medida y calidad a gusto del cliente</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">Precio a Consultar</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Mesa 4 Niveles -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-mesa-4-niveles')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="mesa 4 nivel.jpg" alt="Mesa de 4 Niveles" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Mesa+4+Niveles'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Mesa de Trabajo (4 Niveles)</h4>
+                            <p class="product-desc text-sm text-gray-600">Medida y calidad a gusto del cliente</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">Precio a Consultar</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Mesa con Gavetas -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-mesa-gavetas')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="mesa gavinete 1.jpg" alt="Mesa con Gavetas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Mesa+con+Gavetas'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Mesa de Trabajo con Gavetas</h4>
+                            <p class="product-desc text-sm text-gray-600">Medida y calidad a gusto del cliente</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">Precio a Consultar</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- ===== PÁGINA 14: CATEGORÍA - LAVADEROS ===== -->
+        <!-- ===================================================== -->
+        <div id="page-lavaderos" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Lavaderos</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Modelo: Lavadero Porta Jarra -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-lavadero-portajarra')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="lavadero 2 pozas.jpg" alt="Lavadero (porta jarra y vasos)" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Lavadero+Porta+Jarra'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Lavadero (porta jarra y vasos)</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.2,200.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Lavadero 2 Pozas -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-lavadero-2-pozas')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="lavadero 2 pozas.jpg" alt="Lavadero 2 pozas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Lavadero+2+Pozas'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Lavadero 2 pozas</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.2,100.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Lavadero 1 Poza -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-lavadero-1-poza')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="lavadero 1 poza.jpg" alt="Lavadero 1 poza" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Lavadero+1+Poza'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Lavadero 1 poza</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,500.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- ===== PÁGINA 15: CATEGORÍA - COCINAS INDUSTRIALES ===== -->
+        <!-- ===================================================== -->
+        <div id="page-cocinas-industriales" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Cocinas Industriales</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Modelo: Cocina Industrial 96x66 -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-ind-96x66')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 1300.jpg" alt="Cocina industrial 2 hornillas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Industrial'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina industrial 2 hornillas (96x66)</h4>
+                            <p class="product-desc text-sm text-gray-600">Alto: 75cm</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,300.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Cocina Industrial 105x58 (1) -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-ind-105x58-1')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 1600.jpg" alt="Cocina industrial 2 hornillas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Industrial'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina industrial 2 hornillas (105x58)</h4>
+                            <p class="product-desc text-sm text-gray-600">Modelo 1</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,600.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Cocina Industrial 105x58 (2) -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-ind-105x58-2')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 1700.jpg" alt="Cocina industrial 2 hornillas" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Industrial'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina industrial 2 hornillas (105x58)</h4>
+                            <p class="product-desc text-sm text-gray-600">Modelo 2</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.1,700.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Cocina Grostera -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-grostera')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 2300.jpg" alt="Cocina Grostera" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Grostera'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina Grostera</h4>
+                            <p class="product-desc text-sm text-gray-600">100% Acero inoxidable</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.2,300.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Cocina Grostera Combo -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-grostera-combo')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 2000.jpg" alt="Cocina Grostera mas freidora mas plancha" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Grostera+Combo'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina Brostera (Combo)</h4>
+                            <p class="product-desc text-sm text-gray-600">Grostera + freidora + plancha</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.2,000.00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modelo: Cocina Industrial Combo Full -->
+                <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-ind-combo-full')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 6500.jpg" alt="Cocina industrial combo" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Cocina+Industrial+Combo'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina Industrial (Combo Full)</h4>
+                            <p class="product-desc text-sm text-gray-600">2 hornillas + plancha + freidora + horno</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.6,500.00</p>
+                        </div>
+                    </a>
+                </div>
+                 <!-- Modelo: Cocina Industrial Chifera Combo -->
+                 <div class="flex-shrink-0 w-full">
+                    <a href="#" onclick="navigateTo('page-cocina-ind-chifera-combo')" class="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
+                        <img src="industrial 2800.jpg" alt="Cocina industrial chifera combo" class="product-image w-full h-56 object-cover group-hover:opacity-80 transition-opacity" onerror="this.onerror=null; this.src='https->placehold.co/400x300/e2e8f0/64748b?text=Cocina+Chifera+Combo'">
+                        <div class="p-4">
+                            <h4 class="product-name text-lg font-semibold text-gray-800 truncate">Cocina Industrial (Combo Chifero)</h4>
+                            <p class="product-desc text-sm text-gray-600">1 hornilla + 2 hornillas chiferas (Acero 304)</p>
+                            <p class="product-price text-xl font-bold text-gray-900 mt-2">S/.2,800.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- ===== PÁGINA 16: CATEGORÍA - ACCESORIOS (NUEVO DISEÑO) ===== -->
+        <!-- ========================================================== -->
+        <div id="page-accesorios" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-900 mb-8">Accesorios</h1>
+
+            <!-- Divisiones Grandes (estilo "Para ella") -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <a href="#" onclick="navigateTo('page-acc-planchas')" class="acc-category-lg bg-gradient-to-r from-gray-800 to-gray-600">
+                    <span>Planchas de Fierro</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+                <a href="#" onclick="navigateTo('page-acc-cocina-lena')" class="acc-category-lg bg-gradient-to-r from-orange-600 to-orange-400">
+                    <span>Accesorios de Cocina</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+            </div>
+
+            <!-- Divisiones Pequeñas (estilo circular) -->
+            <div class="flex justify-around flex-wrap gap-8">
+                <a href="#" onclick="navigateTo('page-acc-regatones')" class="acc-category-sm">
+                    <img src="REGATONES 1 - copia.jpg" alt="Regatones" class="img-circle" onerror="this.onerror=null; this.src='https://placehold.co/144x144/e2e8f0/64748b?text=Regatones';">
+                    <h4>Regatones</h4>
+                </a>
+                <a href="#" onclick="navigateTo('page-acc-garruchas')" class="acc-category-sm">
+                    <img src="GARRUCHAS 1.jpg" alt="Garruchas" class="img-circle" onerror="this.onerror=null; this.src='https://placehold.co/144x144/e2e8f0/64748b?text=Garruchas';">
+                    <h4>Garruchas</h4>
+                </a>
+                <!-- Puedes añadir más categorías circulares aquí -->
+            </div>
+        </div>
+
+
+        <!-- ================================================================== -->
+        <!-- ===== SECCIÓN DE PÁGINAS DE DETALLE (NUEVAS) ===== -->
+        <!-- ================================================================== -->
+
+        <!-- ===== PÁGINA 17: DETALLE - MESA 1 NIVEL ===== -->
+        <div id="page-mesa-1-nivel" class="page">
+            <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Mesas de Trabajo
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="mesa 1 nivel.jpg" alt="Mesa de 1 Nivel" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                        <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <!-- Miniatura 1 -->
+                            <img src="mesa 1 nivel.jpg" alt="Vista Principal" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="mesa 1 nivel.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 2 (Placeholder) -->
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Mesas de Trabajo</span>
+                        <h1 class="product-title text-4xl font-bold text-gray-900 mt-2">Mesa de Trabajo (1 Nivel)</h1>
+                        <p class="product-price text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+                        <p class="product-description text-gray-600 mt-8 leading-relaxed">Medida y calidad a gusto del cliente.</p>
+<button onclick="openWhatsAppModal('MESA 1 NIVEL')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 18: DETALLE - MESA 2 NIVELES ===== -->
+        <div id="page-mesa-2-niveles" class="page">
+            <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Mesas de Trabajo
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="mesa 2 nivel.jpg" alt="Mesa de 2 Niveles" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                        <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <!-- Miniatura 1 -->
+                            <img src="mesa 2 nivel.jpg" alt="Vista Principal" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="mesa 2 nivel.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 2 (Placeholder) -->
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Mesas de Trabajo</span>
+                        <h1 class="product-title text-4xl font-bold text-gray-900 mt-2">Mesa de Trabajo (2 Niveles)</h1>
+                        <p class="product-price text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+                        <p class="product-description text-gray-600 mt-8 leading-relaxed">Medida y calidad a gusto del cliente.</p>
+<button onclick="openWhatsAppModal('MESA 2 NIVELES')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== PÁGINA 19: DETALLE - MESA 3 NIVELES ===== -->
+        <div id="page-mesa-3-niveles" class="page">
+            <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Mesas de Trabajo
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="mesa 3 nivel.jpg" alt="Mesa de 3 Niveles" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <!-- Miniatura 1 -->
+                            <img src="mesa 3 nivel.jpg" alt="Vista Principal" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="mesa 3 nivel.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 2 (Placeholder) -->
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Mesas de Trabajo</span>
+                        <h1 class="product-title text-4xl font-bold text-gray-900 mt-2">Mesa de Trabajo (3 Niveles)</h1>
+                        <p class="product-price text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+                        <p class="product-description text-gray-600 mt-8 leading-relaxed">Medida y calidad a gusto del cliente.</p>
+<button onclick="openWhatsAppModal('MESA 3 NIVELES')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== PÁGINA 20: DETALLE - MESA 4 NIVELES ===== -->
+        <div id="page-mesa-4-niveles" class="page">
+            <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Mesas de Trabajo
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="mesa 4 nivel.jpg" alt="Mesa de 4 Niveles" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <!-- Miniatura 1 -->
+                            <img src="mesa 4 nivel.jpg" alt="Vista Principal" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="mesa 4 nivel.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 2 (Placeholder) -->
+                        </div>
+                    </div>  
+                    <!-- Detalles del producto -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Mesas de Trabajo</span>
+                        <h1 class="product-title text-4xl font-bold text-gray-900 mt-2">Mesa de Trabajo (4 Niveles)</h1>
+                        <p class="product-price text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+                        <p class="product-description text-gray-600 mt-8 leading-relaxed">Medida y calidad a gusto del cliente.</p>
+<button onclick="openWhatsAppModal('MESA 4 NIVELES')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 21: DETALLE - MESA CON GAVETAS ===== -->
+        <div id="page-mesa-gavetas" class="page">
+            <a href="#" onclick="navigateTo('page-mesas-trabajo')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Mesas de Trabajo
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- ===== GALERÍA CON VARIACIONES ===== -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="mesa gavinete 1.jpg" alt="Mesa de 1 Gaveta" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <!-- Miniatura 1 (Variación 1) -->
+                            <img src="mesa gavinete 1.jpg" alt="Miniatura 1" 
+                                 class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" 
+                                 data-image="mesa gavinete 1.jpg"
+                                 data-title="Mesa de Trabajo (1 Gaveta)"
+                                 data-price= "Precio a Consultar"
+                                 data-description="Mesa con 1 gaveta. Medida y calidad a gusto del cliente."
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 2 (Variación 2) -->
+                            <img src="mesa gavine 2.jpg" alt="Miniatura 2" 
+                                 class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" 
+                                 data-image="mesa gavine 2.jpg"
+                                 data-title="Mesa de Trabajo (2 Gavetas)"
+                                 data-price="S/.1,500.00"
+                                 data-description="Mesa con 2 gavetas. Ideal para organización de utensilios. Medida y calidad a gusto del cliente."
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- ===== DETALLES CON VARIACIONES ===== -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Mesas de Trabajo</span>
+                        <!-- El título, precio y descripción ahora tienen clases para ser cambiados -->
+                        <h1 class="product-title text-4xl font-bold text-gray-900 mt-2">Mesa de Trabajo (1 Gaveta)</h1>
+                        <p class="product-price text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+                        <p class="product-description text-gray-600 mt-8 leading-relaxed">Mesa con 1 gaveta. Medida y calidad a gusto del cliente.</p>
+                        
+<button onclick="openWhatsAppModal('MESA CON GAVETAS')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        
+                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 22: DETALLE - LAVADERO PORTA JARRA ===== -->
+        <div id="page-lavadero-portajarra" class="page">
+            <a href="#" onclick="navigateTo('page-lavaderos')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Línea Lavado
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="lavadero 2 pozas.jpg" alt="Lavadero (porta jarra y vasos)" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="lavadero 2 pozas.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="lavadero 2 pozas.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Lavado</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Lavadero (porta jarra y vasos)</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,200.00</p>
+<button onclick="openWhatsAppModal('LAVADERO PORTA JARRA')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.50m de ancho x 60cm de largo x 1.77m de alto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 23: DETALLE - LAVADERO 2 POZAS ===== -->
+        <div id="page-lavadero-2-pozas" class="page">
+            <a href="#" onclick="navigateTo('page-lavaderos')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Línea Lavado
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="lavadero 2 pozas.jpg" alt="Lavadero 2 pozas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="lavadero 2 pozas.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="lavadero 2 pozas.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Lavado</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Lavadero 2 pozas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,100.00</p>
+<button onclick="openWhatsAppModal('LAVADERO 2 POZAS')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.50m de ancho x 60cm de largo x 1.77m de alto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 24: DETALLE - LAVADERO 1 POZA ===== -->
+        <div id="page-lavadero-1-poza" class="page">
+            <a href="#" onclick="navigateTo('page-lavaderos')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Línea Lavado
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="lavadero 1 poza.jpg" alt="Lavadero 1 poza" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="lavadero 1 poza.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="lavadero 1 poza.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Línea Lavado</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Lavadero 1 poza</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,500.00</p>
+<button onclick="openWhatsAppModal('LAVADERO 1 POZA')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.08m x 56cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 25: DETALLE - COCINA IND 96x66 ===== -->
+        <div id="page-cocina-ind-96x66" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 1300.jpg" alt="Cocina industrial 2 hornillas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 1300.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 1300.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Procuctos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina industrial 2 hornillas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,300.00</p>
+<button onclick="openWhatsAppModal('COCINA IND 96x66')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 96cm x 66cm</li>
+                                    <li>Alto: 75cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== PÁGINA 26: DETALLE - COCINA IND 105x58 (1) ===== -->
+        <div id="page-cocina-ind-105x58-1" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 1600.jpg" alt="Cocina industrial 2 hornillas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 1600.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 1600.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina industrial 2 hornillas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,600.00</p>
+<button onclick="openWhatsAppModal('Cocina industrial 2 hornillas ')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 105cm x 58cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 27: DETALLE - COCINA IND 105x58 (2) ===== -->
+        <div id="page-cocina-ind-105x58-2" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 1700.jpg" alt="Cocina industrial 2 hornillas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 1700.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 1700.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina industrial 2 hornillas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.1,700.00</p>
+<button onclick="openWhatsAppModal('Cocina industrial 2 hornillas')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 105cm x 58cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 28: DETALLE - COCINA GROSTERA ===== -->
+        <div id="page-cocina-grostera" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 2300.jpg" alt="Cocina Grostera" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 2300.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 2300.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina Brostera</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,300.00</p>
+<button onclick="openWhatsAppModal('COCINA BROSTERA')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.20m x 55cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 29: DETALLE - COCINA GROSTERA COMBO ===== -->
+        <div id="page-cocina-grostera-combo" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 2000.jpg" alt="Cocina Grostera mas freidora mas plancha" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 2000.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 2000.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina Grostera (Combo)</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,000.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Cocina Grostera mas freidora mas plancha. 100% acero inoxidable.</p>
+<button onclick="openWhatsAppModal('COCINA BROSTERA COMBO')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.30m x 55cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 30: DETALLE - Cocina Industrial (Combo Full) ===== -->
+        <div id="page-cocina-ind-combo-full" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 6500.jpg" alt="Cocina Industrial (Combo Full)" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 6500.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 6500.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina Industrial (Combo Full)</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.6,500.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Cocina industrial de 2 hornillas, mas plancha, freidora y horno.</p>
+<button onclick="openWhatsAppModal('Cocina Industrial (Combo Full)')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== PÁGINA 31: DETALLE - Cocina Industrial (Combo Chifero) ===== -->
+        <div id="page-cocina-ind-chifera-combo" class="page">
+            <a href="#" onclick="navigateTo('page-cocinas-industriales')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Cocinas Industriales
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="industrial 2800.jpg" alt="Cocina Industrial (Combo Chifero)" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="industrial 2800.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="industrial 2800.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Productos</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Cocina Industrial (Combo Chifero)</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">S/.2,800.00</p>
+                        <p class="text-gray-600 mt-8 leading-relaxed">Cocina industrial de 1 hornilla, mas dos hornillas chiferas. 100% acero inoxidable (304).</p>
+<button onclick="openWhatsAppModal('Cocina Industrial (Combo Chifero)')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Material: 100% Acero Inoxidable (304)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Medidas: 1.80m x 60cm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 32: DETALLE - ACCESORIOS PLANCHAS ===== -->
+        <div id="page-acc-planchas" class="page">
+            <a href="#" onclick="navigateTo('page-accesorios')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Accesorios
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- ===== GALERÍA CON VARIACIONES ===== -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="PLANCHA 200.jpg" alt="Plancha FONCODES" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <!-- Miniatura 1 (Variación 1) -->
+                            <img src="PLANCHA 200.jpg" alt="Miniatura 1" 
+                                 class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" 
+                                 data-image="PLANCHA 200.jpg"
+                                 data-title="Plancha Modelo FONCODES"
+                                 data-price="S/.200.00"
+                                 data-description="Modelo FONCODES (92x38.2cm)"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 2 (Variación 2) -->
+                            <img src="PLANCHA 120 - copia.jpg" alt="Miniatura 2" 
+                                 class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" 
+                                 data-image="PLANCHA 120 - copia.jpg"
+                                 data-title="Plancha Modelo 70x35"
+                                 data-price="S/.120.00"
+                                 data-description="Modelo (70x35cm)"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 3 (Variación 3) -->
+                            <img src="PLACHA 450.jpg" alt="Miniatura 3" 
+                                 class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" 
+                                 data-image="PLACHA 450.jpg"
+                                 data-title="Plancha Modelo 98.5x57"
+                                 data-price="S/.450.00"
+                                 data-description="Modelo (98.5x57cm)"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <!-- Miniatura 4 (Variación 4) -->
+                            <img src="PLANCHA 260.jpg" alt="Miniatura 4" 
+                                 class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" 
+                                 data-image="PLANCHA 260.jpg"
+                                 data-title="Plancha Modelo 90x43.2"
+                                 data-price="S/.260.00"
+                                 data-description="Modelo (90x43.2cm)"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <!-- ===== DETALLES CON VARIACIONES ===== -->
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Accesorios</span>
+                        <h1 class="product-title text-4xl font-bold text-gray-900 mt-2">Modelos de planchas</h1>
+                        <p class="product-price text-4xl font-bold text-gray-800 mt-6">S/.200.00</p>
+                        <p class="product-description text-gray-600 mt-8 leading-relaxed">Modelo FONCODES (92x38.2cm)</p>
+<button onclick="openWhatsAppModal('Modelos de planchas')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Descripción del Producto</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Planchas de fierro fundido.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== PÁGINA 33: DETALLE - ACCESORIOS COCINA LEÑA ===== -->
+        <div id="page-acc-cocina-lena" class="page">
+            <a href="#" onclick="navigateTo('page-accesorios')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Accesorios
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="ACCESORIO GORRAS 1 - copia.jpg" alt="Accesorios de cocina de leña" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="ACCESORIO GORRAS 1 - copia.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="ACCESORIO GORRAS 1 - copia.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                            <img src="HORNO GALVANIZADO 2.jpg" alt="Miniatura 2" class="gallery-thumbnail w-full rounded-md border border-gray-300 cursor-pointer hover:border-orange-500" data-image="HORNO GALVANIZADO 2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Accesorios</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Accesorios (Cocina a Leña)</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">Desde S/.20.00</p>
+<button onclick="openWhatsAppModal('ACCESORIOS COCINA A LEÑA')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Modelos Disponibles</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>Gorrits - S/.20.00</li>
+                                    <li>Cenicero Acero - S/.35.00</li>
+                                    <li>Cenicero Galvanizado - S/.20.00</li>
+                                    <li>Puerta de Leña - S/.280.00</li>
+                                    <li>Horno Galvanizado - S/.180.00</li>
+                                    <li>Chimenea - S/.50.00</li>
+                                    <li>Codo Galvanizado - S/.50.00</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 34: DETALLE - REGATONES ===== -->
+        <div id="page-acc-regatones" class="page">
+            <a href="#" onclick="navigateTo('page-accesorios')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Accesorios
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="REGATONES 1 - copia.jpg" alt="Regatones" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="REGATONES 1 - copia.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="REGATONES 1 - copia.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Accesorios</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Regatones</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+<button onclick="openWhatsAppModal('REGATONES')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas Disponibles</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>2"</li>
+                                    <li>1 1/2"</li>
+                                    <li>1 1/4"</li>
+                                    <li>5/8"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA 35: DETALLE - GARRUCHAS ===== -->
+        <div id="page-acc-garruchas" class="page">
+            <a href="#" onclick="navigateTo('page-accesorios')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                Volver a Accesorios
+            </a>
+            <div class="bg-white rounded-2xl shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <!-- SECCIÓN DE GALERÍA -->
+                    <div class="product-gallery">
+                        <div class="bg-gray-100 rounded-lg mb-6 border border-gray-200">
+                            <img src="GARRUCHAS 1 - copia.jpg" alt="Garruchas" class="main-gallery-image w-full h-auto rounded-lg object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'"> 
+                        </div>
+                         <button class="open-zoom-button w-full bg-gray-900 text-white py-3 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            Ver Imagen Ampliada
+                        </button>
+                        <div class="gallery-thumbnails mt-6 grid grid-cols-4 gap-4 max-w-md mx-auto">
+                            <img src="GARRUCHAS 1 - copia.jpg" alt="Miniatura 1" class="gallery-thumbnail w-full rounded-md border-4 border-orange-500 cursor-pointer" data-image="GARRUCHAS 1 - copia.jpg" onerror="this.onerror=null; this.src='https:&#x2F;&#x2F;placehold.co&#x2F;100x100&#x2F;e2e8f0&#x2F;64748b?text=Img'; this.classList.add('opacity-50');">
+                        </div>
+                    </div>  
+                    <div>
+                        <span class="text-sm font-semibold text-orange-600 uppercase">Accesorios</span>
+                        <h1 class="text-4xl font-bold text-gray-900 mt-2">Garruchas</h1>
+                        <p class="text-4xl font-bold text-gray-800 mt-6">Precio a Consultar</p>
+<button onclick="openWhatsAppModal('Mesa de Trabajo')" class="w-full bg-orange-500 text-white py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-orange-600">
+    Añadir a Cotización
+</button>                        <div class="mt-10 space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg border-b pb-2">Medidas Disponibles</h3>
+                                <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                    <li>De 2.5"</li>
+                                    <li>De 1 1/2"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   <!-- ===== PÁGINA 36: CATEGORÍA - PROYECTOS A MEDIDA (NUEVA) ===== -->
+        <div id="page-proyectos" class="page">
+            <!-- BOTÓN DE RETROCEDER -->
+            <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a Productos
+            </a>
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Proyectos</h1>
+            
+            <!-- ===== SECCIÓN 1: MODELOS DE BARANDAS ===== -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-10">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">Modelos de Barandas y Pasamanos</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Galería de Barandas -->
+                    <div class="project-card relative group">
+                        <img src="baranda de vidrio.jpg" alt="Baranda Moderna" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="baranda de vidrio.jpg">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Baranda de Vidrio en acero</p>
+                    </div>
+                    <div class="project-card relative group">
+                        <img src="baranda con cables de tension.jpg" alt="Baranda con Cables" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="baranda con cables de tension.jpg">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Baranda de Cable </p>
+                    </div>
+                    <div class="project-card relative group">
+                        <img src="baranda con curva.jpg" alt="Pasamanos Curvo" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="baranda con curva.jpg">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Baranda en curva</p>
+                    </div>
+                    <div class="project-card relative group">
+                        <img src="baranda comun.jpg" alt="Baranda Simple" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="baranda comun.jpg">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Baranda  Simple</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== SECCIÓN 2: ESTRUCTURAS DE TECHOS ===== -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">Estructuras de Techos y Coberturas</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Galería de Techos -->
+                    <div class="project-card relative group">
+                        <img src="techo oxapampa.jpg" alt="Estructura de Techo simple" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="techo oxapampa.jpg">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Techo modo oxapampa</p>
+                    </div>
+                    <div class="project-card relative group">
+                        <img src="techo simple.jpg" alt="Cobertura grande" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="techo simple.jpg">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Techo Simple</p>
+                    </div>
+                    <div class="project-card relative group">
+                        <img src="techo industrial.webp" alt="Estructura Comercial" class="w-full h-48 object-cover rounded-lg cursor-pointer open-zoom-button" data-image="techo industrial.webp">
+                        <p class="text-sm font-medium text-gray-700 mt-2 p-2">Estructura Industrial</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secciones de detalle (Resto de la aplicación) -->
+        <!-- ... (El resto del código de detalle de productos va aquí) ... -->
+<!-- ===== PÁGINA 37: CONTACTO Y MÉTODOS DE PAGO (NUEVA) ===== -->
+<div id="page-contacto" class="page">
+    <!-- BOTÓN DE RETROCEDER -->
+    <a href="#" onclick="navigateTo('page-main')" class="inline-flex items-center text-orange-600 hover:text-orange-800 font-semibold text-sm mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        Volver a Productos
+    </a>
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Contacto y Métodos de Pago</h1>
+
+    <div class="bg-white rounded-xl shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- SECCIÓN 1: CONTACTO DIRECTO (WSP) -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">Contacto Directo</h2>
+            <p class="text-gray-600 mb-6">¿Tienes una consulta o deseas una cotización? Escríbenos directamente a WhatsApp. ¡Te responderemos al instante!</p>
+            
+            <div class="space-y-4">
+                <!-- Botón WSP 1 -->
+                <a href="https://wa.me/51975768030" target="_blank" class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.576 1.576 5.578 1.576 5.46 0 9.903-4.444 9.903-9.902S17.693 2.018 12.232 2.018c-5.46 0-9.902 4.444-9.902 9.903 0 2.22.75 4.354 2.108 6.03l-1.32 4.869 4.966-1.309z"/></svg>
+                    WhatsApp :  975 768 030
+                </a>
+                <!-- Botón WSP 2 -->
+                <a href="https://wa.me/51986774062" target="_blank" class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.576 1.576 5.578 1.576 5.46 0 9.903-4.444 9.903-9.902S17.693 2.018 12.232 2.018c-5.46 0-9.902 4.444-9.902 9.903 0 2.22.75 4.354 2.108 6.03l-1.32 4.869 4.966-1.309z"/></svg>
+                    WhatsApp : 986 774 062
+                </a>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: MÉTODOS DE PAGO -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">Métodos de Pago</h2>
+            <p class="text-gray-600 mb-4">Aceptamos los siguientes métodos de pago:</p>
+            <div class="space-y-4">
+                <div class="bg-gray-100 p-4 rounded-lg flex items-center">
+                    <img src="https://placehold.co/60x40/00A0E9/FFFFFF?text=YAPE" alt="Yape" class="h-10 w-16 object-contain rounded-md mr-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">Yape</h3>
+                        <p class="text-gray-600">Paga de forma rápida y segura.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg flex items-center">
+                    <img src="https://placehold.co/60x40/007AFF/FFFFFF?text=PLIN" alt="Plin" class="h-10 w-16 object-contain rounded-md mr-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">Plin</h3>
+                        <p class="text-gray-600">Simple, sin comisiones.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg flex items-center">
+                     <img src="https://placehold.co/60x40/E5E7EB/4B5563?text=BCP" alt="BCP" class="h-10 w-16 object-contain rounded-md mr-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-gray-800">Transferencia Bancaria (BCP)</h3>
+                        <p class="text-gray-600">Cta. Cte. Soles: XXXX-XXXX-XXXX-XX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    </main>
+    <!-- ===== MODAL DE ZOOM DE IMÁGENES ===== -->
+<div id="zoom-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4">
+    <div class="relative max-w-4xl w-full">
+        <!-- Botón de Cerrar -->
+        <button id="close-zoom-modal" class="absolute -top-8 -right-8 bg-white text-black rounded-full p-3 z-10 hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <!-- Imagen Ampliada -->
+        <img id="modal-image" src="" alt="Imagen Ampliada" class="w-full h-auto rounded-lg">
+    </div>
+</div>
+<!-- ===== MODAL DE SELECCIÓN DE WHATSAPP (NUEVO) ===== -->
+<div id="whatsapp-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg p-6 shadow-2xl w-full max-w-md relative">
+        <!-- Botón de Cerrar -->
+        <button id="close-whatsapp-modal" class="absolute -top-3 -right-3 bg-gray-700 text-white rounded-full p-2 z-10 hover:bg-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Contactar a un Asesor</h3>
+        <p class="text-gray-600 mb-4">Estás cotizando el producto:</p>
+        <p id="whatsapp-product-name" class="text-lg font-semibold text-orange-600 mb-6"></p>
+        
+        <p class="text-gray-600 mb-4">Selecciona un número para chatear:</p>
+        <div class="space-y-3">
+            <!-- Botón WSP 1 -->
+            <a id="wsp-link-1" href="#" target="_blank" class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-5 rounded-lg transition duration-300 ease-in-out">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.576 1.576 5.578 1.576 5.46 0 9.903-4.444 9.903-9.902S17.693 2.018 12.232 2.018c-5.46 0-9.902 4.444-9.902 9.903 0 2.22.75 4.354 2.108 6.03l-1.32 4.869 4.966-1.309z"/></svg>
+                WhatsApp 1 (+51 975 768 030)
+            </a>
+            <!-- Botón WSP 2 -->
+            <a id="wsp-link-2" href="#" target="_blank" class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-5 rounded-lg transition duration-300 ease-in-out">
+                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.576 1.576 5.578 1.576 5.46 0 9.903-4.444 9.903-9.902S17.693 2.018 12.232 2.018c-5.46 0-9.902 4.444-9.902 9.903 0 2.22.75 4.354 2.108 6.03l-1.32 4.869 4.966-1.309z"/></svg>
+                WhatsApp 2 (+51 986 774 062)
+            </a>
+        </div>
+    </div>
+</div>
+    <!-- ===== FOOTER (PIE DE PÁGINA) ===== -->
+    <footer class="bg-gray-800 text-gray-300 pt-12 pb-8 mt-12">
+        <div class="container mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-4">INOX CARHUA</h3>
+                <p class="text-sm mb-2">M&C BUSINESS CORPORACION S.A.C.</p>
+                <p class="text-sm">Fabricantes de equipos y mobiliario en acero inoxidable de alta calidad.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Navegación</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" onclick="navigateTo('page-main')" class="hover:text-orange-500">Inicio</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Quiénes Somos</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Tienda</a></li>
+                    <li><a href="#" class="hover:text-orange-500">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Productos</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" onclick="navigateTo('page-main')" class="hover:text-orange-500">Productos</a></li>
+                    <li><a href="#" onclick="navigateTo('page-mesas-trabajo')" class="hover:text-orange-500">Mesas de Trabajo</a></li>
+                    <li><a href="#" onclick="navigateTo('page-lavaderos')" class="hover:text-orange-500">Línea de Lavado</a></li>
+                    <li><a href="#" onclick="navigateTo('page-accesorios')" class="hover:text-orange-500">Accesorios</a></li>
+                    <li><a href="#" onclick="navigateTo('page-proyectos')" class="hover:text-orange-500">Proyectos a Medida</a></li>
+                </ul>
+            </div>
+            <div>
+              <div>
+    <h4 class="text-lg font-semibold text-white mb-4">Contacto</h4>
+    <ul class="space-y-2 text-sm">
+     <li><a href="https://maps.app.goo.gl/UYmymdbuShyfQnyXA" target="_blank" class="hover:text-orange-500">📍 Dirección: Cr. Fernando Belaúnde Terry km 3.5 "Luyando"</a></li>
+       <li><a href="https://wa.me/51975768030" target="_blank" class="hover:text-orange-500">📱 WhatsApp 1: +51 975 768 030</a></li>
+                 <li><a href="https://wa.me/51986774062" target="_blank" class="hover:text-orange-500">📱 WhatsApp 2: +51 986 774 062</a></li>
+    </ul>
+</div>
+</li>
+                  
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
+<p class="text-center text-gray-400 text-sm">© Inox Carhua. Somos fabricantes.  <a href="https://www.facebook.com/profile.php?id=61564456289044" target="_blank" class="text-orange-500 hover:text-orange-400">
+    <svg class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a></p>        </div>
+    </footer>
+
+    <!-- ===== MODAL 2D (POP-UP) - ZOOM DE IMAGEN (GENERAL) ===== -->
+    <div id="zoom-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg p-4 shadow-2xl w-11/12 max-w-4xl relative">
+            <button id="close-zoom-modal" class="absolute -top-4 -right-4 bg-orange-600 text-white rounded-full p-2 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Imagen Ampliada</h3>
+            <img id="modal-image" src="VISTA DELANTE COCINA A LEÑA.png" alt="Vista ampliada" class="w-full h-auto object-contain" style="max-height: 80vh;" onerror="this.onerror=null; this.src='https://placehold.co/800x600/e2e8f0/64748b?text=Imagen+no+disponible'">
+        </div>
+    </div>
+
+
+    <!-- ===== SCRIPT DE NAVEGACIÓN Y MODAL (ACTUALIZADO) ===== -->
+<script>
+    // --- Lógica de Navegación de PÁGINA ÚNICA ---
+    let pages;
+    let navLinks;
+    
+    function navigateTo(pageId) {
+        if (!pages) {
+            pages = document.querySelectorAll('.page');
+        }
+        if (!navLinks) {
+            navLinks = document.querySelectorAll('nav a');
+        }
+
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        const nextPage = document.getElementById(pageId);
+        if (nextPage) {
+            nextPage.classList.add('active');
+        } else {
+            document.getElementById('page-main').classList.add('active');
+            pageId = 'page-main';
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('text-orange-500', 'border-b-2', 'border-orange-500');
+            link.classList.add('text-gray-300');
+            
+            const navMap = {
+                'page-hornos': 'nav-productos',
+                'page-parrilleros': 'nav-productos',
+                'page-chiferas': 'nav-productos',
+                'page-cocinas-industriales': 'nav-productos',
+                'page-horno-9-latas': 'nav-productos',
+                'page-horno-4-latas': 'nav-productos',
+                'page-parrillero-1m': 'nav-productos',
+                'page-parrillero-80cm': 'nav-productos',
+                'page-cocina-chifera-3h': 'nav-productos',
+                'page-cocina-chifera-2h': 'nav-productos',
+                'page-cocina-industrial': 'nav-productos',
+                'page-contacto': 'nav-contacto',
+                'page-main': 'nav-productos'
+            };
+
+            const parentNavId = navMap[pageId];
+            if (parentNavId && link.id === parentNavId) {
+                link.classList.add('text-orange-500', 'border-b-2', 'border-orange-500');
+                link.classList.remove('text-gray-300');
+            }
+        });
+        
+        window.scrollTo(0, 0);
+    }
+
+    // --- FUNCIÓN PARA ABRIR MODAL DE WHATSAPP (NUEVA) ---
+    function openWhatsAppModal(productName) {
+        document.getElementById('whatsapp-product-name').textContent = productName;
+        document.getElementById('whatsapp-modal').classList.remove('hidden');
+        
+        const phone1 = '51975768030';
+        const phone2 = '51986774062';
+        const message = `Hola, me interesa cotizar: ${productName}`;
+        
+        document.getElementById('wsp-link-1').href = `https://wa.me/${phone1}?text=${encodeURIComponent(message)}`;
+        document.getElementById('wsp-link-2').href = `https://wa.me/${phone2}?text=${encodeURIComponent(message)}`;
+    }
+
+        // --- SCRIPT DE MODALES ---
+    document.addEventListener('DOMContentLoaded', () => {
+        pages = document.querySelectorAll('.page');
+        navLinks = document.querySelectorAll('nav a');
+        navigateTo('page-main');
+
+          // ===== SCRIPT DE ZOOM DE IMÁGENES (NUEVO) =====
+        const zoomModal = document.getElementById('zoom-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeZoomModal = document.getElementById('close-zoom-modal');
+
+        // Abrir modal de zoom al hacer clic en botón "Ver Imagen Ampliada"
+        document.querySelectorAll('.open-zoom-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const mainImage = button.parentElement.querySelector('img:not(.gallery-thumbnail)');
+                if (mainImage) {
+                    modalImage.src = mainImage.src;
+                    zoomModal.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Abrir zoom al hacer clic en miniaturas
+        document.querySelectorAll('.gallery-thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                const imageUrl = thumbnail.getAttribute('data-image');
+                if (imageUrl) {
+                    modalImage.src = imageUrl;
+                    zoomModal.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Cerrar modal de zoom
+        if (closeZoomModal) {
+            closeZoomModal.addEventListener('click', () => {
+                zoomModal.classList.add('hidden');
+            });
+        }
+
+        if (zoomModal) {
+            zoomModal.addEventListener('click', (e) => {
+                if (e.target === zoomModal) {
+                    zoomModal.classList.add('hidden');
+                }
+            });
+        }
+
+        // Cerrar modal de WhatsApp
+        const closeWhatsappModal = document.getElementById('close-whatsapp-modal');
+        const whatsappModal = document.getElementById('whatsapp-modal');
+
+        if (closeWhatsappModal) {
+            closeWhatsappModal.addEventListener('click', () => {
+                whatsappModal.classList.add('hidden');
+            });
+        }
+
+        if (whatsappModal) {
+            whatsappModal.addEventListener('click', (e) => {
+                if (e.target === whatsappModal) {
+                    whatsappModal.classList.add('hidden');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
