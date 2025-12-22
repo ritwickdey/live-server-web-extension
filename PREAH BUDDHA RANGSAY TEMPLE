@@ -1,0 +1,94 @@
+buddhist-lookup/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+└── data/
+    ├── vi.json
+    ├── en.json
+    ├── kh.json
+    └── pali.json
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tra cứu Phật giáo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>📚 Tra cứu Phật giáo đa ngôn ngữ</h1>
+
+  <select id="language">
+    <option value="vi">Tiếng Việt</option>
+    <option value="en">English</option>
+    <option value="pali">Pāli</option>
+  </select>
+
+  <input type="text" id="search" placeholder="Nhập từ khóa...">
+  <button onclick="search()">Tra cứu</button>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+}
+
+input, select, button {
+  padding: 8px;
+  margin: 5px;
+}
+
+#result {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+async function search() {
+  const lang = document.getElementById("language").value;
+  const keyword = document.getElementById("search").value.toLowerCase();
+  const resultDiv = document.getElementById("result");
+
+  const response = await fetch(`data/${lang}.json`);
+  const data = await response.json();
+
+  const result = data.find(item =>
+    item.title.toLowerCase().includes(keyword)
+  );
+
+  if (result) {
+    resultDiv.innerHTML = `
+      <h3>${result.title}</h3>
+      <p>${result.content}</p>
+    `;
+  } else {
+    resultDiv.innerHTML = "<p>Không tìm thấy kết quả.</p>";
+  }
+}
+[
+  {
+    "title": "Tứ Diệu Đế",
+    "content": "Khổ, Tập, Diệt, Đạo là bốn chân lý căn bản của Phật giáo."
+  },
+  {
+    "title": "Bát Chánh Đạo",
+    "content": "Con đường tám ngành dẫn đến giải thoát."
+  }
+][
+  {
+    "title": "Four Noble Truths",
+    "content": "Suffering, origin, cessation, and path."
+  }
+]
+[
+  {
+    "title": "Cattāri Ariyasaccāni",
+    "content": "Dukkha, samudaya, nirodha, magga."
+  }
+]
+
