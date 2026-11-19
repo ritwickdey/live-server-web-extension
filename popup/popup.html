@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Live Server</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -31,22 +31,22 @@
         <div class="row">
             <div>
                 <input type="checkbox" id="noProxyCheckBox">
-                <label for="noProxyCheckBox">I don't want proxy setup (recommended)</label>
+                <label for="noProxyCheckBox">I don't want to set up a proxy (recommended)</label>
             </div>
         </div>
 
         <div id="serverSetup">
             <div class="row">
                 <div>
-                    <label class="form-label" for="actualServer">Actual Server Address</label>
-                    <input class="form-control" type="text" id="actualServer" placeholder="http://Your Server Address">
+                    <label class="form-label" for="actualServer">Web Server Address</label>
+                    <input class="form-control" type="text" id="actualServer" placeholder="http://your_server_address">
                 </div>
             </div>
 
             <div class="row">
                 <div>
                     <label class="form-label" for="liveServer">Live Server Address</label>
-                    <input class="form-control" type="text" id="liveServer" placeholder="Eg. http://127.0.0.1:5500/">
+                    <input class="form-control" type="text" id="liveServer" placeholder="E.g. http://127.0.0.1:5500/">
                     <a class="short-right-label" target="_blank" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Install Live Server</a>
                 </div>
             </div>
@@ -57,8 +57,7 @@
     </div>
     <div class="footer">
         <a target="_blank" href="https://github.com/ritwickdey/live-server-web-extension">Need Help?</a>
-        <p>NOTE: You need two server. Live Server will give `live` power of your existing server (May be Wamp, XAMPP, IIS
-            or Node.js)</p>
+        <p>NOTE: You need to run both a web server and a live server. Live Server will make your web server `live`, which includes Wamp, XAMPP, IIS or Node.js</p>
     </div>
     <script src="./popup.js"></script>
 </body>
